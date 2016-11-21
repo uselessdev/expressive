@@ -6,7 +6,7 @@
 
 This is only *experimental boilerplate*.
 
-## HOW TO USAGE
+## HOW TO USE
 
 ``` bash
 $ git clone git@github.com:uselessdev/express-boilerplate.git <your-app>; cd <your-app>
