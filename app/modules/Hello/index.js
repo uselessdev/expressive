@@ -3,7 +3,7 @@
  */
 'use strict'
 
-const hello = require('./hello-controller')
+const hello = require('./hello.controller')
 
 module.exports = {
   index: hello.index

@@ -2,11 +2,11 @@
 version: '2'
 
 services:
-  mongodb:
+  MongoDB:
     container_name: mongo-app
-    image: mongo
+    image: sameersbn/mongodb:latest
     ports:
-      - "27017:27017"
+      - "28002:27017"
     volumes:
-      - .:/setup
-    command: --auth
+      - ./storage/mongodb:/var/lib/mongodb
+    restart: always

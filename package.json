@@ -4,6 +4,7 @@
   "description": "An simple express boilerplate",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon ./index.js localhost:3030",
     "start": "node index.js",
     "test": "mocha"
   },
@@ -26,6 +27,7 @@
     "consign": "^0.1.2",
     "express": "^4.14.0",
     "method-override": "^2.3.7",
+    "mongoose": "^4.6.8",
     "pug": "^2.0.0-beta6"
   },
   "devDependencies": {
