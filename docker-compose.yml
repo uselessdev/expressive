@@ -1,0 +1,12 @@
+# v2 sintax
+version: '2'
+
+services:
+  mongodb:
+    container_name: mongo-app
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - .:/setup
+    command: --auth

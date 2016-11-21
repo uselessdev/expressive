@@ -1,0 +1,38 @@
+doctype html
+html(lang="pt-BR")
+  head
+    meta(charset="UTF-8")
+    meta(name="theme-color", content="#3d566e")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+
+    block title
+      title Express boilerplate
+
+    base(href="/")
+    link(rel="icon", href="assets/images/favicon/favico.png")
+    link(rel="stylesheet", href="//fonts.googleapis.com/css?family=Ubuntu")
+    link(rel="stylesheet", href="assets/styles/main.min.css")
+
+    //- Your individuals styles
+    block styles
+
+  body
+    <!--[if lt IE 9]>
+      p(class="browserupgrade") You are using an #[strong outdated] browser. Please #[a(href="http://browsehappy.com/") upgrade your browser] to improve your experience.
+    <![endif]-->
+
+    main.main(role="main")
+      block content
+
+    <!-- /SCRIPTS -->
+    script(src="assets/scripts/main.min.js")
+
+    //- Your individuals scripts
+    block scripts
+
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    script.
+        window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+        ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
+
+    script(src="https://www.google-analytics.com/analytics.js", async, defer)
