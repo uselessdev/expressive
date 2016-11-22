@@ -1,10 +1,4 @@
 /**
- * Hello
+ * Hello index module
  */
-'use strict'
-
-const hello = require('./hello.controller')
-
-module.exports = {
-  index: hello.index
-}
+module.exports = require('./routes')

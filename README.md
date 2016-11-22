@@ -15,7 +15,9 @@ $ npm install
 
 ## MongoDB
 
-You need *Docker and docker-compose*, and for know your host type:
+*wip*
+
+### Using docker-compose for MongoDB
 
 ``` bash
 $ docker exec -it mongo-app mongod

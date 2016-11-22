@@ -16,11 +16,15 @@ app.use(bodyParser.urlencoded({
   extended: true
 }))
 
+// Setting view folder and view engine
 app.set('views', './app/modules')
 app.set('view engine', 'pug')
 
+// Setting static files
+app.use(express.static('public'))
+
 consign({cwd: 'app'})
-  .include('routes')
+  .then('routes.js')
   .into(app)
 
 module.exports = app
