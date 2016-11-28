@@ -1,5 +1,5 @@
 /**
- * HelloController
+ * Controller
  */
 'use strict'
 

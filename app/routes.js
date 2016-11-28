@@ -9,6 +9,6 @@ module.exports = app => {
   app.use('/hello', hello)
 
   app.get('/', (request, response) => {
-    response.render('./views/welcome')
+    response.render('../views/welcome')
   })
 }
