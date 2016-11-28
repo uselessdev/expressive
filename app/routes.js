@@ -3,10 +3,10 @@
  */
 'use strict'
 
-const hello = require('./modules/Hello')
+const user = require('./modules/User')
 
 module.exports = app => {
-  app.use('/hello', hello)
+  app.use('/user', user)
 
   app.get('/', (request, response) => {
     response.render('../views/welcome')

@@ -10,3 +10,7 @@ services:
     volumes:
       - ./storage/mongodb:/var/lib/mongodb
     restart: always
+    environment:
+      MONGODB_USER: "homestead"
+      MONGODB_DATABASE: "homestead"
+      MONGODB_PASS: "secret"

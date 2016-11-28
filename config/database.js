@@ -1,6 +1,7 @@
 /**
  * Database config
  */
+'use strict'
 
 module.exports = {
   mongo: {

@@ -1,0 +1,29 @@
+extends ../../views/layout
+
+block title
+  title Users - Express Boilerplate
+
+block styles
+  style.
+    h1 {
+      text-align: center;
+    }
+
+    small {
+      display: block;
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    code {
+      padding: 5px;
+      margin: 0 5px;
+      color: #666;
+      border-radius: 5px;
+      background-color: #d9d9d9;
+    }
+
+block content
+  h1 Users
+    small findOne: #[code user.name] = #{user.name}
+    small findOne: #[code user.created()] = #{user.created()}

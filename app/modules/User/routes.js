@@ -1,11 +1,11 @@
 /**
- * Hello Router
+ * User Routes
  */
 'use strict'
 
-const hello = require('./controller')
+const user = require('./controller')
 const router = require('express').Router()
 
-router.get('/', hello.index)
+router.get('/', user.index)
 
 module.exports = router

@@ -15,7 +15,7 @@ $ npm install
 
 ## MongoDB
 
-*wip*
+Connection need be configured on `config/database.js`
 
 ### Using docker-compose for MongoDB
 
