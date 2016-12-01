@@ -11,6 +11,7 @@ moment.locale('pt-br')
 
 const userSchema = new mongoose.Schema({
   name: String,
+  email: String,
   username: {
     type: String,
     required: true,
