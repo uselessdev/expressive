@@ -1,0 +1,202 @@
+{
+  "_type": "export",
+  "__export_format": 2,
+  "__export_date": "2016-12-01T16:00:23.529Z",
+  "__export_source": "insomnia.desktop.app:v3.7.3",
+  "resources": [
+    {
+      "modified": 1480598610981,
+      "created": 1480598610981,
+      "parentId": null,
+      "name": "Express Boilerplate - Test",
+      "_id": "wrk_ac9eee2eb3e649c99d97cdbfae2f596d",
+      "_type": "workspace"
+    },
+    {
+      "modified": 1480598630160,
+      "created": 1480598630160,
+      "parentId": "wrk_ac9eee2eb3e649c99d97cdbfae2f596d",
+      "name": "Base Environment",
+      "data": {},
+      "_id": "env_56b2c0bb4ae143779803584d4c906d09",
+      "_type": "environment"
+    },
+    {
+      "modified": 1480598630190,
+      "created": 1480598630190,
+      "parentId": "wrk_ac9eee2eb3e649c99d97cdbfae2f596d",
+      "name": "Default Jar",
+      "cookies": [],
+      "_id": "jar_a45d56b6098a4b67901ef012a48bab60",
+      "_type": "cookie_jar"
+    },
+    {
+      "modified": 1480599323252,
+      "created": 1480599281472,
+      "parentId": "wrk_ac9eee2eb3e649c99d97cdbfae2f596d",
+      "url": "http://localhost:3000/user/auth",
+      "name": "Success auth",
+      "method": "POST",
+      "body": "username=usernamed&password=123456789",
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/x-www-form-urlencoded"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1480599281472,
+      "_id": "req_208aa0a065c445c6a434ac48c8fcf920",
+      "_type": "request"
+    },
+    {
+      "modified": 1480598689843,
+      "created": 1480598624999,
+      "parentId": "wrk_ac9eee2eb3e649c99d97cdbfae2f596d",
+      "url": "http://localhost:3000/user/auth",
+      "name": "Fails user name",
+      "method": "POST",
+      "body": "",
+      "parameters": [
+        {
+          "name": "username",
+          "value": "jesus"
+        },
+        {
+          "name": "password",
+          "value": "123456789"
+        }
+      ],
+      "headers": [],
+      "authentication": {
+        "username": "",
+        "password": ""
+      },
+      "metaSortKey": -1480598624999,
+      "_id": "req_4403663543df42ad9b109d8e040de036",
+      "_type": "request"
+    },
+    {
+      "modified": 1480599218116,
+      "created": 1480598738343,
+      "parentId": "wrk_ac9eee2eb3e649c99d97cdbfae2f596d",
+      "url": "http://localhost:3000/user/auth",
+      "name": "Fail password",
+      "method": "POST",
+      "body": "username=usernamed&password=batata",
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/x-www-form-urlencoded"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1480598738343,
+      "_id": "req_7d26b18c73934dfebf8de3c789d754dd",
+      "_type": "request"
+    },
+    {
+      "modified": 1480607538232,
+      "created": 1480607529435,
+      "parentId": "wrk_ac9eee2eb3e649c99d97cdbfae2f596d",
+      "url": "http://localhost:3000/user?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwiZ2V0dGVycyI6e30sIndhc1BvcHVsYXRlZCI6ZmFsc2UsImFjdGl2ZVBhdGhzIjp7InBhdGhzIjp7InBhc3N3b3JkIjoiaW5pdCIsInVzZXJuYW1lIjoiaW5pdCIsIl9fdiI6ImluaXQiLCJuYW1lIjoiaW5pdCIsImNyZWF0ZWRfYXQiOiJpbml0IiwidXBkYXRlZF9hdCI6ImluaXQiLCJfaWQiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJfX3YiOnRydWUsInBhc3N3b3JkIjp0cnVlLCJ1c2VybmFtZSI6dHJ1ZSwibmFtZSI6dHJ1ZSwiY3JlYXRlZF9hdCI6dHJ1ZSwidXBkYXRlZF9hdCI6dHJ1ZSwiX2lkIjp0cnVlfSwibW9kaWZ5Ijp7fSwicmVxdWlyZSI6e319LCJzdGF0ZU5hbWVzIjpbInJlcXVpcmUiLCJtb2RpZnkiLCJpbml0IiwiZGVmYXVsdCIsImlnbm9yZSJdfSwiZW1pdHRlciI6eyJkb21haW4iOm51bGwsIl9ldmVudHMiOnt9LCJfZXZlbnRzQ291bnQiOjAsIl9tYXhMaXN0ZW5lcnMiOjB9fSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7Il9fdiI6MCwicGFzc3dvcmQiOiIxMjM0NTY3ODkiLCJ1c2VybmFtZSI6InVzZXJuYW1lZCIsIm5hbWUiOiJKaG9uIERvZSIsImNyZWF0ZWRfYXQiOiIyMDE2LTEyLTAxVDEzOjAwOjE4LjE4MFoiLCJ1cGRhdGVkX2F0IjoiMjAxNi0xMi0wMVQxMzowMDoxOC4xODBaIiwiX2lkIjoiNTg0MDFlZTI5MjFjMzE2NDEzOWVkMDMxIn0sIl9wcmVzIjp7IiRfX29yaWdpbmFsX3NhdmUiOltudWxsLG51bGwsbnVsbF0sIiRfX29yaWdpbmFsX3ZhbGlkYXRlIjpbbnVsbF0sIiRfX29yaWdpbmFsX3JlbW92ZSI6W251bGxdfSwiX3Bvc3RzIjp7IiRfX29yaWdpbmFsX3NhdmUiOltdLCIkX19vcmlnaW5hbF92YWxpZGF0ZSI6W10sIiRfX29yaWdpbmFsX3JlbW92ZSI6W119LCJpYXQiOjE0ODA1OTk0NDcsImV4cCI6MTQ4MDY4NTg0N30.1KYLCmXEHkkvoVV5rrKDwo1ZWMzyhCKkvkOCePhBkmI",
+      "name": "Trying GET users query",
+      "method": "GET",
+      "body": "",
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1480607439601,
+      "_id": "req_8e0b612accb543809ff67f1838e48c7d",
+      "_type": "request"
+    },
+    {
+      "modified": 1480600611378,
+      "created": 1480600328739,
+      "parentId": "wrk_ac9eee2eb3e649c99d97cdbfae2f596d",
+      "url": "http://localhost:3000/user",
+      "name": "Test GET without token",
+      "method": "GET",
+      "body": "",
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1480600328739,
+      "_id": "req_ab0d9e6a28ae4614b89bd3c9779f5a21",
+      "_type": "request"
+    },
+    {
+      "modified": 1480607626200,
+      "created": 1480607439602,
+      "parentId": "wrk_ac9eee2eb3e649c99d97cdbfae2f596d",
+      "url": "http://localhost:3000/user",
+      "name": "Trying GET users form",
+      "method": "GET",
+      "body": "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwiZ2V0dGVycyI6e30sIndhc1BvcHVsYXRlZCI6ZmFsc2UsImFjdGl2ZVBhdGhzIjp7InBhdGhzIjp7InBhc3N3b3JkIjoiaW5pdCIsInVzZXJuYW1lIjoiaW5pdCIsIl9fdiI6ImluaXQiLCJuYW1lIjoiaW5pdCIsImNyZWF0ZWRfYXQiOiJpbml0IiwidXBkYXRlZF9hdCI6ImluaXQiLCJfaWQiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJfX3YiOnRydWUsInBhc3N3b3JkIjp0cnVlLCJ1c2VybmFtZSI6dHJ1ZSwibmFtZSI6dHJ1ZSwiY3JlYXRlZF9hdCI6dHJ1ZSwidXBkYXRlZF9hdCI6dHJ1ZSwiX2lkIjp0cnVlfSwibW9kaWZ5Ijp7fSwicmVxdWlyZSI6e319LCJzdGF0ZU5hbWVzIjpbInJlcXVpcmUiLCJtb2RpZnkiLCJpbml0IiwiZGVmYXVsdCIsImlnbm9yZSJdfSwiZW1pdHRlciI6eyJkb21haW4iOm51bGwsIl9ldmVudHMiOnt9LCJfZXZlbnRzQ291bnQiOjAsIl9tYXhMaXN0ZW5lcnMiOjB9fSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7Il9fdiI6MCwicGFzc3dvcmQiOiIxMjM0NTY3ODkiLCJ1c2VybmFtZSI6InVzZXJuYW1lZCIsIm5hbWUiOiJKaG9uIERvZSIsImNyZWF0ZWRfYXQiOiIyMDE2LTEyLTAxVDEzOjAwOjE4LjE4MFoiLCJ1cGRhdGVkX2F0IjoiMjAxNi0xMi0wMVQxMzowMDoxOC4xODBaIiwiX2lkIjoiNTg0MDFlZTI5MjFjMzE2NDEzOWVkMDMxIn0sIl9wcmVzIjp7IiRfX29yaWdpbmFsX3NhdmUiOltudWxsLG51bGwsbnVsbF0sIiRfX29yaWdpbmFsX3ZhbGlkYXRlIjpbbnVsbF0sIiRfX29yaWdpbmFsX3JlbW92ZSI6W251bGxdfSwiX3Bvc3RzIjp7IiRfX29yaWdpbmFsX3NhdmUiOltdLCIkX19vcmlnaW5hbF92YWxpZGF0ZSI6W10sIiRfX29yaWdpbmFsX3JlbW92ZSI6W119LCJpYXQiOjE0ODA1OTk0NDcsImV4cCI6MTQ4MDY4NTg0N30.1KYLCmXEHkkvoVV5rrKDwo1ZWMzyhCKkvkOCePhBkmI",
+      "parameters": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "",
+          "value": ""
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/x-www-form-urlencoded"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1480607439602,
+      "_id": "req_be7ba44b6afe4d149d577691377b3412",
+      "_type": "request"
+    },
+    {
+      "modified": 1480607937959,
+      "created": 1480607644101,
+      "parentId": "wrk_ac9eee2eb3e649c99d97cdbfae2f596d",
+      "url": "http://localhost:3000/user",
+      "name": "Get user header",
+      "method": "GET",
+      "body": "",
+      "parameters": [],
+      "headers": [
+        {
+          "name": "x-access-token",
+          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwiZ2V0dGVycyI6e30sIndhc1BvcHVsYXRlZCI6ZmFsc2UsImFjdGl2ZVBhdGhzIjp7InBhdGhzIjp7InBhc3N3b3JkIjoiaW5pdCIsInVzZXJuYW1lIjoiaW5pdCIsIl9fdiI6ImluaXQiLCJuYW1lIjoiaW5pdCIsImNyZWF0ZWRfYXQiOiJpbml0IiwidXBkYXRlZF9hdCI6ImluaXQiLCJfaWQiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJfX3YiOnRydWUsInBhc3N3b3JkIjp0cnVlLCJ1c2VybmFtZSI6dHJ1ZSwibmFtZSI6dHJ1ZSwiY3JlYXRlZF9hdCI6dHJ1ZSwidXBkYXRlZF9hdCI6dHJ1ZSwiX2lkIjp0cnVlfSwibW9kaWZ5Ijp7fSwicmVxdWlyZSI6e319LCJzdGF0ZU5hbWVzIjpbInJlcXVpcmUiLCJtb2RpZnkiLCJpbml0IiwiZGVmYXVsdCIsImlnbm9yZSJdfSwiZW1pdHRlciI6eyJkb21haW4iOm51bGwsIl9ldmVudHMiOnt9LCJfZXZlbnRzQ291bnQiOjAsIl9tYXhMaXN0ZW5lcnMiOjB9fSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7Il9fdiI6MCwicGFzc3dvcmQiOiIxMjM0NTY3ODkiLCJ1c2VybmFtZSI6InVzZXJuYW1lZCIsIm5hbWUiOiJKaG9uIERvZSIsImNyZWF0ZWRfYXQiOiIyMDE2LTEyLTAxVDEzOjAwOjE4LjE4MFoiLCJ1cGRhdGVkX2F0IjoiMjAxNi0xMi0wMVQxMzowMDoxOC4xODBaIiwiX2lkIjoiNTg0MDFlZTI5MjFjMzE2NDEzOWVkMDMxIn0sIl9wcmVzIjp7IiRfX29yaWdpbmFsX3NhdmUiOltudWxsLG51bGwsbnVsbF0sIiRfX29yaWdpbmFsX3ZhbGlkYXRlIjpbbnVsbF0sIiRfX29yaWdpbmFsX3JlbW92ZSI6W251bGxdfSwiX3Bvc3RzIjp7IiRfX29yaWdpbmFsX3NhdmUiOltdLCIkX19vcmlnaW5hbF92YWxpZGF0ZSI6W10sIiRfX29yaWdpbmFsX3JlbW92ZSI6W119LCJpYXQiOjE0ODA1OTk0NDcsImV4cCI6MTQ4MDY4NTg0N30.1KYLCmXEHkkvoVV5rrKDwo1ZWMzyhCKkvkOCePhBkmI"
+        },
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1480607644101,
+      "_id": "req_e14b8d86fb894fb69ccf9401ce151eed",
+      "_type": "request"
+    }
+  ]
+}
