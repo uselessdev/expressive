@@ -3,7 +3,6 @@
  */
 'use strict'
 
-const jwt = require('jsonwebtoken')
 const User = require('./model')
 
 function index (request, response) {
