@@ -7,26 +7,15 @@ function index (request, response) {
   response.send('oi')
 }
 
-module.exports = {index}
+function auth (request, response) {
+  response.send('authorization')
+}
 
-// function sample (request, response) {
-//   var user = new User({
-//     name: 'Jhon Doe',
-//     username: 'usernamed',
-//     password: '123456789'
-//   })
+function validate () {
+  response.send('this can validate token and autorize')
+}
 
-//   user.save(err => {
-//     if (err) {
-//       throw new Error(err)
-//     }
-
-//     console.log('User has been saved!')
-//     response.json({
-//       success: true
-//     })
-//   })
-// }
+module.exports = {auth, validate}
 
 // function auth (request, response) {
 //   User.findOne({username: request.body.username}, function (err, user) {
