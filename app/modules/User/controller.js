@@ -12,7 +12,7 @@ function index (request, response) {
    */
   User.findOne({}, (err, user) => {
     if (err) {
-      return response.sendStatus(500).send(err)
+      return response.status(500).send(err)
     }
 
     response.format({
