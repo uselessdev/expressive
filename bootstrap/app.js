@@ -39,6 +39,7 @@ consign({
   locale: 'pt-br'
 })
 .include('routes.js')
+.include('model.js')
 .into(app)
 
 module.exports = app
