@@ -34,8 +34,11 @@ app.set('view engine', 'pug')
 // Setting the secret
 app.set('secret', require('../config/app').key)
 
-consign({cwd: 'app'})
-  .include('routes.js')
-  .into(app)
+consign({
+  cwd: 'app',
+  locale: 'pt-br'
+})
+.include('routes.js')
+.into(app)
 
 module.exports = app
