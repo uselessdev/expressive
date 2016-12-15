@@ -11,9 +11,6 @@ const consign = require('consign')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 
-// Connection with MongoDB
-require('./database')()
-
 const app = express()
 
 // Middleware
