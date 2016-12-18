@@ -1,5 +1,7 @@
 /**
  * Model
+ *
+ * Return an instance of connection as function
  */
 'use strict'
 
