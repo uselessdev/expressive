@@ -3,6 +3,8 @@
  */
 'use strict'
 
+require('dotenv').config()
+
 module.exports = {
-  key: 'batata'
+  key: process.env.APP_SECRET
 }

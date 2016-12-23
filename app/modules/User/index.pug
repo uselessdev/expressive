@@ -4,26 +4,29 @@ block title
   title Users - Express Boilerplate
 
 block styles
-  style.
-    h1 {
-      text-align: center;
-    }
-
-    small {
-      display: block;
-      font-size: 12px;
-      font-weight: 400;
-    }
-
-    code {
-      padding: 5px;
-      margin: 0 5px;
-      color: #666;
-      border-radius: 5px;
-      background-color: #d9d9d9;
-    }
+  link(href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel="stylesheet")
 
 block content
-  h1 Users
-    small findOne: #[code user.name] = #{user.name}
-    small findOne: #[code user.created()] = #{user.created()}
+  .container
+    .page-header
+      h1 Users
+
+    table.table.table-hover
+      tbody
+        thead
+          tr
+            th #[strong #]
+            th #[strong Name]
+            th #[strong E-mail]
+            th #[strong Username]
+            th #[strong Password]
+            th #[strong Created at]
+
+        each user in users
+          tr
+            td #[strong #{user._id}]
+            td #[span #{user.name}]
+            td #[span #{user.email}]
+            td #[span #{user.username}]
+            td #[span #{user.password}]
+            td #[span #{user.created()}]

@@ -3,10 +3,6 @@
  */
 'use strict'
 
-function index (request, response) {
-  response.send('oi')
-}
-
 function auth (request, response) {
   response.send('authorization')
 }

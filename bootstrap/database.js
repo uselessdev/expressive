@@ -1,12 +1,11 @@
 /**
  * Database
  */
+'use strict'
 
 const mongoose = require('mongoose')
 const mongo = require('../config/database').mongo
 
-function connection () {
-  mongoose.connect(mongo.uri)
-}
+mongoose.Promise = global.Promise
 
-module.exports = connection
+module.exports = mongoose.connect(mongo.uri)

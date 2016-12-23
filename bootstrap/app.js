@@ -31,15 +31,11 @@ app.use(morgan('dev'))
 app.set('views', './app/modules')
 app.set('view engine', 'pug')
 
-// Setting the secret
-app.set('secret', require('../config/app').key)
-
 consign({
-  cwd: 'app',
   locale: 'pt-br'
 })
-.include('routes.js')
-.include('model.js')
+.include('bootstrap/database.js')
+.then('app/routes.js')
 .into(app)
 
 module.exports = app

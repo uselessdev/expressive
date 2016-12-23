@@ -4,9 +4,7 @@
   "description": "An simple express boilerplate",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./index.js localhost:3000",
-    "start": "node index.js",
-    "test": "mocha"
+    "dev": "nodemon ./server.js"
   },
   "repository": {
     "type": "git",
@@ -23,8 +21,10 @@
   },
   "homepage": "https://github.com/uselessdev/express-generator#readme",
   "dependencies": {
+    "bcrypt": "^1.0.1",
     "body-parser": "^1.15.2",
     "consign": "^0.1.2",
+    "dotenv": "^2.0.0",
     "express": "^4.14.0",
     "jsonwebtoken": "^7.1.9",
     "method-override": "^2.3.7",
@@ -35,6 +35,7 @@
     "pug": "^2.0.0-beta6"
   },
   "devDependencies": {
+    "faker": "^3.1.0",
     "nodemon": "^1.11.0"
   }
 }
