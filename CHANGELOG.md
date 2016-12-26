@@ -3,13 +3,15 @@
 ## Unreleased
 
 - Create helpers function
-- Add crypt for passwords
+- Create auth using JWT
 - Auth example
+- Compare passwords hashed
 - Configure connection to connect only when this is used
 
 ## [0.1.0] - YYYY-MM-DD
 
 ### Added
+- Bcrypt to hash passwords
 - Add .env files
 - Added public to static files
 - Added main route file

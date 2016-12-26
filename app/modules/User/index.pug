@@ -11,22 +11,23 @@ block content
     .page-header
       h1 Users
 
-    table.table.table-hover
-      tbody
-        thead
-          tr
-            th #[strong #]
-            th #[strong Name]
-            th #[strong E-mail]
-            th #[strong Username]
-            th #[strong Password]
-            th #[strong Created at]
+    if (users.length)
+      table.table.table-hover
+        tbody
+          thead
+            tr
+              th #[strong #]
+              th #[strong Name]
+              th #[strong E-mail]
+              th #[strong Username]
+              th #[strong Created at]
 
-        each user in users
-          tr
-            td #[strong #{user._id}]
-            td #[span #{user.name}]
-            td #[span #{user.email}]
-            td #[span #{user.username}]
-            td #[span #{user.password}]
-            td #[span #{user.created()}]
+          each user in users
+            tr
+              td #[strong #{user._id}]
+              td #[span #{user.name}]
+              td #[span #{user.email}]
+              td #[span #{user.username}]
+              td #[span #{user.created()}]
+    else
+      p.text-info No users registered yet... #[a(href="users/create") Create an random user]
