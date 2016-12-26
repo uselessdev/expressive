@@ -12,7 +12,10 @@ const timestamps = require('mongoose-timestamps')
 
 const userSchema = new mongoose.Schema({
   name: String,
-  email: String,
+  email: {
+    type: String,
+    unique: true
+  },
   username: {
     type: String,
     required: true,
@@ -41,6 +44,10 @@ userSchema.pre('save', function (next) {
 
 userSchema.methods.created = function () {
   return moment(this.created_at).format('LLL')
+}
+
+userSchema.methods.isValidPassword = function (password) {
+  return bcrypt.compare(password, this.password)
 }
 
 userSchema.plugin(timestamps)
