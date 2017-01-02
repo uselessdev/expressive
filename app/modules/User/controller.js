@@ -48,11 +48,18 @@ function index (request, response) {
  * This method create an random user.
  */
 function create (request, response) {
+  // let user = new User({
+  //   name: faker.name.firstName(),
+  //   email: faker.internet.email(),
+  //   username: faker.internet.userName(),
+  //   password: faker.lorem.word()
+  // })
+
   let user = new User({
-    name: faker.name.firstName(),
-    email: faker.internet.email(),
-    username: faker.internet.userName(),
-    password: faker.lorem.word()
+    name: 'Wallace Batista',
+    email: 'wallacebatistaoliveira@gmail.com',
+    username: 'uselessdev',
+    password: 'batata'
   })
 
   user

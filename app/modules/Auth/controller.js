@@ -1,69 +1,54 @@
 /**
- * Controller
+ * Auth Controller
  */
 'use strict'
 
-function auth (request, response) {
-  response.send('authorization')
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+
+const User = require('../../../config/auth').users.model
+
+/**
+ * Generate token
+ * @param  {Object} user
+ * @return String Token
+ */
+function _token (user) {
+  return jwt.sign(user, 'secret', {
+    expiresIn: 60 * 60 * 24
+  })
 }
 
-function validate () {
-  response.send('this can validate token and autorize')
+function login (request, response) {
+  /**
+   * @TODO: Validate this plis.
+   */
+  let {username, password} = request.body
+
+  User.findOne({'username': username})
+    .select('+password')
+    .then(user => {
+      if (!user) {
+        return response.status(403).json({message: 'Authenticated failed!'})
+      }
+
+      return bcrypt.compare(password, user.password)
+        .then(match => {
+          if (!match) {
+            return response.status(403).json({message: 'Authenticated failed!'})
+          }
+
+          return response.format({
+            json: () => response.json({token: _token(user)})
+          })
+        })
+        .catch(error => response.status(500).json(error))
+    })
+    .catch(error => console.error('errorr', error))
 }
 
-module.exports = {auth, validate}
+function authenticated (request, response) {
+  response.send('valid')
+}
 
-// function auth (request, response) {
-//   User.findOne({username: request.body.username}, function (err, user) {
-//     if (err) {
-//       throw new Error(err)
-//     }
-
-//     if (!user) {
-//       return response.status(401).json({
-//         success: false,
-//         message: 'Authentication failed! User not found!'
-//       })
-//     }
-
-//     if (user.password !== request.body.password) {
-//       return response.json({
-//         success: false,
-//         message: 'Authentication failed! wrong password!'
-//       })
-//     }
-
-//     let token = jwt.sign(user, 'batata', {
-//       expiresIn: 60*60*24
-//     })
-
-//     response.json({
-//       success: true,
-//       message: 'User has been authenticated',
-//       token: token
-//     })
-//   })
-// }
-
-// function tokenValidate (request, response, next) {
-//   const token = request.body.token || request.query.token || request.headers['x-access-token']
-
-//   if (!token) {
-//     return response.status(403).json({
-//       success: false,
-//       message: 'No token provide'
-//     })
-//   }
-
-//   jwt.verify(token, 'batata', (err, decoded) => {
-//     if (err) {
-//       return response.status(401).json({
-//         success: false,
-//         message: 'Invalid token.'
-//       })
-//     }
-
-//     request.decoded = decoded
-//     next()
-//   })
-// }
+module.exports = {login, authenticated}

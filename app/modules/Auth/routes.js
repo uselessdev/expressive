@@ -5,6 +5,7 @@
 const auth = require('./controller')
 const router = require('express').Router()
 
-router.use('/', auth.index)
+router.post('/', auth.login)
+router.get('/', auth.authenticated)
 
 module.exports = router
