@@ -11,23 +11,6 @@ function index (request, response) {
    * This is only an example.
    * You can access `/users/create` to create an random user
    */
-
-  // This is a valid login example
-  // User.findOne({username: 'uselessdev'})
-  //   .select('+password')
-  //   .then(users => {
-  //     if (!users) {
-  //       return response.send('no users')
-  //     }
-
-  //     users
-  //       .comparePassword('batata')
-  //       .then(match => console.log(match))
-  //       .catch(err => console.log(err))
-
-  //     response.json(users)
-  //   })
-
   User.find()
     .then(users => {
       if (!users) {

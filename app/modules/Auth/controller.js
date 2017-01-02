@@ -9,14 +9,19 @@ const jwt = require('jsonwebtoken')
 const User = require('../../../config/auth').users.model
 
 /**
- * Generate token
+ * Generate token.
+ *
  * @param  {Object} user
  * @return String Token
  */
-function _token (user) {
+function _generateToken (user) {
   return jwt.sign(user, 'secret', {
     expiresIn: 60 * 60 * 24
   })
+}
+
+function _getTokenRequest (request) {
+  return request.body.token || request.query.token || request.headers['X-access-token']
 }
 
 function login (request, response) {
@@ -29,26 +34,42 @@ function login (request, response) {
     .select('+password')
     .then(user => {
       if (!user) {
-        return response.status(403).json({message: 'Authenticated failed!'})
+        return response.status(401).json({message: 'Authenticated failed!'})
       }
 
       return bcrypt.compare(password, user.password)
         .then(match => {
           if (!match) {
-            return response.status(403).json({message: 'Authenticated failed!'})
+            return response.status(401).json({message: 'Authenticated failed!'})
           }
 
           return response.format({
-            json: () => response.json({token: _token(user)})
+            json: () => response.json({token: _generateToken(user)})
           })
         })
         .catch(error => response.status(500).json(error))
     })
-    .catch(error => console.error('errorr', error))
+    .catch(error => response.status(500).json(error))
 }
 
-function authenticated (request, response) {
-  response.send('valid')
+/**
+ * Validate JWT and continue or fail.
+ */
+function authenticated (request, response, next) {
+  let token = _getTokenRequest(request)
+
+  if (!token) {
+    return response.status(401).json({message: 'Authenticated failed! No token provided.'})
+  }
+
+  jwt.verify(token, 'secret', (error, decoded) => {
+    if (error) {
+      return response.status(401).json({message: 'Authenticated failed!'})
+    }
+
+    request.decoded = decoded
+    next()
+  })
 }
 
 module.exports = {login, authenticated}
