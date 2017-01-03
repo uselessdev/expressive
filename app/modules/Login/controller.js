@@ -1,9 +1,10 @@
 /**
  * Login Controller
  */
+'use strict'
 
 function index (request, response) {
-  response.send('login page')
+  response.render('Login/index')
 }
 
 module.exports = {index}

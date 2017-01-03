@@ -1,0 +1,22 @@
+extends ../../views/layout
+
+block title
+  title Users - Express Boilerplate
+
+block styles
+  link(href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel="stylesheet")
+
+block content
+  .container
+    form.form.col-sm-4.col-sm-offset-4.form-signin(action="/", method="post")
+      .page-header
+        h2 Sign in
+
+      .form-group
+        label Username
+        input.form-control(placeholder="your user name...")
+      .form-group
+        label Password
+        input.form-control(placeholder="your password")
+
+      button.btn.btn-default Sign in

@@ -20,6 +20,19 @@ function _generateToken (user) {
   })
 }
 
+function _handleFailAuth (response, message) {
+  message = message || {message: 'Authenticated failed!'}
+
+  return response.format({
+    // @TODO: Add option to redirect if fail
+    html: () => response.status(401).redirect('/login'),
+    json: () => response.status(401).json(message)
+  })
+}
+
+/**
+ * Get token from request
+ */
 function _getTokenRequest (request) {
   return request.body.token || request.query.token || request.headers['X-access-token']
 }
@@ -55,16 +68,16 @@ function login (request, response) {
 /**
  * Validate JWT and continue or fail.
  */
-function authenticated (request, response, next) {
+function verify (request, response, next) {
   let token = _getTokenRequest(request)
 
   if (!token) {
-    return response.status(401).json({message: 'Authenticated failed! No token provided.'})
+    return _handleFailAuth(response, {message: 'No token provided!'})
   }
 
   jwt.verify(token, 'secret', (error, decoded) => {
     if (error) {
-      return response.status(401).json({message: 'Authenticated failed!'})
+      return _handleFailAuth(response)
     }
 
     request.decoded = decoded
@@ -72,4 +85,4 @@ function authenticated (request, response, next) {
   })
 }
 
-module.exports = {login, authenticated}
+module.exports = {login, verify}
