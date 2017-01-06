@@ -1,5 +1,5 @@
 /**
- * Index login
+ * Index
  */
 'use strict'
 
