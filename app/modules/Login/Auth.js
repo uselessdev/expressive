@@ -41,7 +41,7 @@ function _comparePassword (password, hash) {
  * @return {String[, Boolean]}
  */
 function _getTokenFromRequest (request) {
-  return request.body.token || request.query.token || request.headers['x-access-token']
+  return request.session.token || request.body.token || request.query.token || request.headers['x-access-token']
 }
 
 /**

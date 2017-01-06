@@ -6,6 +6,7 @@
 const bcrypt = require('bcrypt')
 const Auth = require('./Auth')
 
+// @TODO: Use Auth handle to make this
 function _handleFailAuthenticate (response, message) {
   message = message || 'Authenticated failed!'
 
@@ -21,6 +22,8 @@ function index (request, response) {
 }
 
 function signin (request, response) {
+  let session = request.session
+
   Auth.authenticate(request.body)
     .then(token => {
       if (!token) {
@@ -30,12 +33,19 @@ function signin (request, response) {
       return response.format({
         json: () => response.json({'token': token}),
         html: () => {
-          // @TODO: Save token on localStorage or sessionStorage
-          return response.redirect(`/users?token=${token}`)
+          // @TODO: Place this in another file??
+          session.token = token
+          return response.redirect('/users')
         }
       })
     })
     .catch(error => console.log(error))
 }
 
-module.exports = {index, signin}
+function signout (request, response) {
+  request.session.destroy(() => {
+    response.redirect('/')
+  })
+}
+
+module.exports = {index, signin, signout}

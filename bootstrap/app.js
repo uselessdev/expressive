@@ -5,10 +5,13 @@
  */
 'use strict'
 
+require('dotenv').config
+
 const morgan = require('morgan')
 const express = require('express')
 const consign = require('consign')
 const bodyParser = require('body-parser')
+const session = require('express-session')
 const methodOverride = require('method-override')
 
 const app = express()
@@ -26,6 +29,15 @@ app.use(methodOverride())
 
 // Morgan
 app.use(morgan('dev'))
+
+// Session settings
+// @TODO: Add session connection with mongo
+app.use(session({
+  name: process.env.SESSION_NAME,
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUniitialized: true
+}))
 
 // Setting view folder and view engine
 app.set('views', './app/modules')
