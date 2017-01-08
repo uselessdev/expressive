@@ -36,7 +36,7 @@ app.use(session({
   name: process.env.SESSION_NAME,
   secret: process.env.SESSION_SECRET,
   resave: false,
-  saveUniitialized: true
+  saveUninitialized: true
 }))
 
 // Setting view folder and view engine

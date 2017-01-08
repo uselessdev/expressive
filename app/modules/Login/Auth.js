@@ -14,7 +14,6 @@ const User = require('../User/model')
  * @return {String}
  */
 function _generateToken (user) {
-  // @TODO: Remove assign entire user data to payload
   return jwt.sign(user, 'secret', {
     expiresIn: 60 * 60 * 24
   })
@@ -50,7 +49,9 @@ function _getTokenFromRequest (request) {
  * @param  {[Object Response} response
  * @param  {String} message
  */
-function _handleAuthFail (response, message) {
+function handleFailAuthenticate (response, message) {
+  message = message || 'Authenticated failed!'
+
   return response.format({
     json: () => response.status(401).json({message: message}),
     html: () => response.status(401).redirect('/login')
@@ -79,7 +80,7 @@ function authenticate (credentials) {
             return false
           }
 
-          return _generateToken(user)
+          return _generateToken({_id: user._id})
         })
         .catch(error => error)
     })
@@ -97,15 +98,15 @@ function verify (request, response, next) {
   let token = _getTokenFromRequest(request)
 
   if (!token) {
-    return _handleAuthFail(response, 'No token provided!')
+    return handleFailAuthenticate(response, 'No token provided!')
   }
 
   jwt.verify(token, 'secret', (error, decoded) => {
     if (error) {
-      return _handleAuthFail(response)
+      return handleFailAuthenticate(response)
     }
     next()
   })
 }
 
-module.exports = {authenticate, verify}
+module.exports = {authenticate, verify, handleFailAuthenticate}
