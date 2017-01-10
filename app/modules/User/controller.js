@@ -9,7 +9,7 @@ const faker = require('faker')
 function index (request, response) {
   /**
    * This is only an example.
-   * You can access `/users/create` to create an random user
+   * You can access `/users/create` to create a random user
    */
   User.find()
     .then(users => {
@@ -28,21 +28,14 @@ function index (request, response) {
 /**
  * Create.
  *
- * This method create an random user.
+ * This method create a random user.
  */
 function create (request, response) {
-  // let user = new User({
-  //   name: faker.name.firstName(),
-  //   email: faker.internet.email(),
-  //   username: faker.internet.userName(),
-  //   password: faker.lorem.word()
-  // })
-
   let user = new User({
-    name: 'Wallace Batista',
-    email: 'wallacebatistaoliveira@gmail.com',
-    username: 'uselessdev',
-    password: 'batata'
+    name: faker.name.firstName(),
+    email: faker.internet.email(),
+    username: faker.internet.userName(),
+    password: faker.lorem.word()
   })
 
   user

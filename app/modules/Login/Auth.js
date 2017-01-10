@@ -3,6 +3,8 @@
  */
 'use strict'
 
+require('dotenv').config()
+
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const User = require('../User/model')
@@ -14,7 +16,7 @@ const User = require('../User/model')
  * @return {String}
  */
 function _generateToken (user) {
-  return jwt.sign(user, 'secret', {
+  return jwt.sign(user, process.end.APP_SECRET, {
     expiresIn: 60 * 60 * 24
   })
 }
@@ -101,7 +103,7 @@ function verify (request, response, next) {
     return handleFailAuthenticate(response, 'No token provided!')
   }
 
-  jwt.verify(token, 'secret', (error, decoded) => {
+  jwt.verify(token, process.end.APP_SECRET, (error, decoded) => {
     if (error) {
       return handleFailAuthenticate(response)
     }
