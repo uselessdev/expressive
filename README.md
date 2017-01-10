@@ -20,13 +20,13 @@ Connection need be configured on `config/database.js`
 ### Using docker-compose for MongoDB
 
 ``` bash
-$ docker exec -it mongo-app mongod
+$ docker exec -it app-mongodb mongod
 ```
 
 If you need to use the shell:
 
 ``` bash
-$ docker exec -it mongo-app bash
+$ docker exec -it app-mongodb bash
 ```
 
 ## CONTRIBUTING
