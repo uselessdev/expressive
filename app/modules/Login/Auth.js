@@ -16,7 +16,7 @@ const User = require('../User/model')
  * @return {String}
  */
 function _generateToken (user) {
-  return jwt.sign(user, process.end.APP_SECRET, {
+  return jwt.sign(user, process.env.APP_SECRET, {
     expiresIn: 60 * 60 * 24
   })
 }
@@ -90,7 +90,7 @@ function authenticate (credentials) {
 }
 
 /**
- * Verify with token user is valid.
+ * Verify if token user is valid.
  *
  * @param  {Object Request} request
  * @param  {Object Response} response
