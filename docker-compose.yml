@@ -1,12 +1,19 @@
-# v2 sintax
+# v2 syntax
 version: '2'
 
+# Named volumes
+volumes:
+  # MongoDB Data
+  app-mongodb-data:
+    driver: local
+
 services:
-  MongoDB:
-    container_name: mongo-app
-    image: sameersbn/mongodb:latest
+  # MongoDB
+  mongodb:
+    image: sameersbn/mongodb
+    container_name: app-mongodb
     ports:
       - "28002:27017"
     volumes:
-      - ./storage/mongodb:/var/lib/mongodb
+      - app-mongodb-data:/var/lib/mongodb
     restart: always
