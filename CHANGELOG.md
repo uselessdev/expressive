@@ -7,6 +7,7 @@
 ## [0.1.0] - YYYY-MM-DD
 
 ### Added
+- Request layer for validate inputs
 - Compare hashs
 - Bcrypt to hash passwords
 - Add .env files
@@ -18,3 +19,7 @@
 - Compare passwords hashed
 - Create auth using JWT
 - Apply env secret
+
+### Removed
+
+- Storage folder
