@@ -8,9 +8,26 @@ This is only *experimental boilerplate*.
 
 ## HOW TO USE
 
-``` bash
-$ git clone git@github.com:uselessdev/express-boilerplate.git <your-app>; cd <your-app>
+```bash
+$ git clone git@github.com:uselessdev/express-boilerplate.git <your-app>
+$ cd <your-app>
 $ npm install
+```
+
+After this, copy .env.example to .env
+
+```bash
+$ cp .env.example .env
+```
+
+Change the the following env vars:
+
+```bash
+APP_LOCALE=your-locale
+APP_SECRET=your-secret
+
+SESSION_NAME=your-session-name
+SESSION_SECRET=your-session-secret
 ```
 
 ## MongoDB
@@ -19,7 +36,7 @@ Connection need be configured on `config/database.js`
 
 ### Using docker-compose for MongoDB
 
-``` bash
+```bash
 $ docker exec -it app-mongodb mongod
 ```
 

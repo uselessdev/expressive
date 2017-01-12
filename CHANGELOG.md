@@ -19,6 +19,10 @@
 - Compare passwords hashed
 - Create auth using JWT
 - Apply env secret
+- Save sessions on mongodb
+- Add CSRF token middleware https://www.npmjs.com/package/csurf
+- Helmet https://www.npmjs.com/package/helmet
+
 
 ### Removed
 

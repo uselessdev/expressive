@@ -6,11 +6,11 @@
 const user = require('./modules/User')
 const login = require('./modules/Login')
 
-const Auth = require('./modules/Login/Auth').verify
+const auth = require('./modules/Login/auth').verify
 
 module.exports = app => {
   app.use('/', login)
-  app.use('/users', Auth, user)
+  app.use('/users', auth, user)
 
   app.get('/', (request, response) => {
     response.render('../views/welcome')

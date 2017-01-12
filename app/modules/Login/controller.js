@@ -3,9 +3,11 @@
  */
 'use strict'
 
-const bcrypt = require('bcrypt')
-const Auth = require('./Auth')
+const Auth = require('./auth')
 
+/**
+ * Render login page if user os not logged in.
+ */
 function index (request, response) {
   if (request.session.token) {
     return response.redirect('/users')
@@ -14,6 +16,9 @@ function index (request, response) {
   response.render('Login/index')
 }
 
+/**
+ * Make login, using auth.
+ */
 function signin (request, response) {
   let session = request.session
 

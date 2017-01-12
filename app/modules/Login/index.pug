@@ -9,6 +9,8 @@ block content
       .pahe-header
         h2 Sing in
 
+      input(name="_csrf", value=_csrf, hidden)
+
       .form-group
         label Username
         input.form-control(placeholder="your username", name="username", type="text")
