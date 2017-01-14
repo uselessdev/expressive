@@ -36,14 +36,9 @@ Connection need be configured on `config/database.js`
 
 ### Using docker-compose for MongoDB
 
+
 ```bash
-$ docker exec -it app-mongodb mongod
-```
-
-If you need to use the shell:
-
-``` bash
-$ docker exec -it app-mongodb bash
+$ docker exec -it app-mongodb [mongod, bash, mongo]
 ```
 
 ## CONTRIBUTING
@@ -51,3 +46,6 @@ $ docker exec -it app-mongodb bash
 
 ## CHANGELOG
 [Changelog](CHANGELOG.md)
+
+## LICENSE
+[License](LICENSE)

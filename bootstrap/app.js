@@ -14,9 +14,7 @@ const bodyParser = require('body-parser')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const methodOverride = require('method-override')
-const csrf = require('csurf')
 const helmet = require('helmet')
-const cookieParser = require('cookie-parser')
 
 const app = express()
 
@@ -28,20 +26,6 @@ app.use(bodyParser.urlencoded({
 }))
 
 app.use(bodyParser.json())
-app.use(cookieParser())
-
-// CSRF Protection
-app.use(csrf({
-  cookie: true
-}))
-
-/**
- * To get CSRF Token in a view just use _csrf variable.
- */
-app.use(function (request, response, next) {
-  response.locals._csrf = request.csrfToken()
-  next()
-})
 
 // Setting static files
 app.use(express.static('public'))

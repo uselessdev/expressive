@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- remove CSRF token from API posts requests
 - Seed and Factories
 
 ## [0.1.0] - YYYY-MM-DD
