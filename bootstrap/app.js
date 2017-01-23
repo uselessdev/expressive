@@ -15,6 +15,9 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const methodOverride = require('method-override')
 const helmet = require('helmet')
+const path = require('path')
+
+require('app-module-path').addPath(path.resolve(__dirname, '../'))
 
 const app = express()
 

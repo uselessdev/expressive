@@ -4,7 +4,7 @@
 'use strict'
 
 const mongoose = require('mongoose')
-const mongo = require('../config/database').mongo
+const mongo = require('config/database').mongo
 
 mongoose.Promise = global.Promise
 

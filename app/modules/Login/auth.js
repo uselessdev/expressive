@@ -7,7 +7,7 @@ require('dotenv').config()
 
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const User = require('../User/model')
+const User = require('config/auth').users.model
 
 /**
  * Generate and return a token for autheticated user.

@@ -3,6 +3,7 @@
 ## Unreleased
 
 - remove CSRF token from API posts requests
+- Add CSRF token middleware https://www.npmjs.com/package/csurf
 - Seed and Factories
 
 ## [0.1.0] - YYYY-MM-DD
@@ -21,7 +22,6 @@
 - Create auth using JWT
 - Apply env secret
 - Save sessions on mongodb
-- Add CSRF token middleware https://www.npmjs.com/package/csurf
 - Helmet https://www.npmjs.com/package/helmet
 
 
