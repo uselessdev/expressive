@@ -9,7 +9,7 @@ This is only *experimental boilerplate*.
 ## HOW TO USE
 
 ```bash
-$ git clone git@github.com:uselessdev/express-boilerplate.git <your-app>
+$ git clone git@github.com:uselessdev/expressive.git <your-app>
 $ cd <your-app>
 $ npm install
 ```
