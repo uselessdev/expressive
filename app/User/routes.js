@@ -3,10 +3,10 @@
  */
 'use strict'
 
-const user = require('./controller')
+const users = require('./controller')
 const router = require('express').Router()
 
-router.get('/', user.index)
-router.get('/create', user.create)
+router.get('/', users.index)
+// router.get('/create', user.create)
 
 module.exports = router

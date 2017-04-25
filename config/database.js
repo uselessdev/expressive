@@ -1,11 +1,12 @@
 /**
- * Database config
+ * Database settings
  */
-'use strict'
-
-require('dotenv').config()
-
 module.exports = {
+  /**
+   * MongoDB settings.
+   *
+   * @type {Object}
+   */
   mongo: {
     uri: process.env.MONGODB_URI
   }

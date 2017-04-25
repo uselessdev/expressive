@@ -1,10 +1,11 @@
 /**
  * Auth Configuration
  */
-
-// @TODO: Configurar providers pra autenticação
 module.exports = {
+  /**
+   * User model.
+   */
   'users': {
-    'model': require('app/modules/User/model')
+    'model': require('app/User/model')
   }
 }

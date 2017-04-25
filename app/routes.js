@@ -1,18 +1,12 @@
 /**
  * Routes
  */
-'use strict'
-
-const user = require('./modules/User')
-const login = require('./modules/Login')
-
-const auth = require('./modules/Login/auth').verify
+const Users = require('./User')
 
 module.exports = app => {
-  app.use('/', login)
-  app.use('/users', auth, user)
+  app.use('/users', Users)
 
   app.get('/', (request, response) => {
-    response.render('../views/welcome')
+    response.render('views/welcome')
   })
 }
