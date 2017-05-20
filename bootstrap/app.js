@@ -25,6 +25,11 @@ const mongo = require('config/database').mongo
  */
 const app = express()
 
+// Settings some variables vars
+app.locals.app = {
+  name: config.name
+}
+
 /**
  * Here we define some middlewares
  */
@@ -50,26 +55,26 @@ app.use(bodyParser.json())
 /**
  * Session settings.
  */
-// app.use(session({
-//   name: sess.name,
-//   secret: sess.secret,
-//   resave: false,
-//   saveUninitialized: true,
-//   session: new MongoStore({
-//     url: mongo.uri
-//   })
-// }))
+app.use(session({
+  name: sess.name,
+  secret: sess.secret,
+  resave: false,
+  saveUninitialized: true,
+  session: new MongoStore({
+    url: mongo.uri
+  })
+}))
 
 /**
  * Define public folders
  */
-app.use(express.static('public'))
+app.use(express.static(config.public))
 
 /**
  * View engine
  */
-app.set('views', ['app', 'resources'])
-app.set('view engine', 'pug')
+app.set('views', config.views.folders)
+app.set('view engine', config.views.engine)
 
 /**
  * Autoload some modules for initial start.
@@ -77,7 +82,8 @@ app.set('view engine', 'pug')
 consign({
   locale: config.locale
 })
-.include('app/routes.js')
+.include('bootstrap/database.js')
+.then('app/routes.js')
 .into(app)
 
 module.exports = app

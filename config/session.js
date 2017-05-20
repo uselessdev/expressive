@@ -3,7 +3,7 @@
  */
 module.exports = {
   /**
-   * Secret for season.
+   * Secret for JWT.
    *
    * @type {String}
    */

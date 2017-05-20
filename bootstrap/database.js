@@ -1,8 +1,6 @@
 /**
  * Database
  */
-'use strict'
-
 const mongoose = require('mongoose')
 const mongo = require('config/database').mongo
 

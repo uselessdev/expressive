@@ -1,15 +1,12 @@
 /**
  * Routes
  */
-'use strict'
-
-const request = require('./request')
+const Router = require('express').Router()
 const login = require('./controller')
-const router = require('express').Router()
 
-router.get('/login', login.index)
-router.post('/login', request, login.signin)
+Router.get('/login', login.index)
+Router.post('/login', login.signin)
 
-router.get('/logout', login.signout)
+Router.get('/logout', login.signout)
 
-module.exports = router
+module.exports = Router

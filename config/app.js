@@ -7,7 +7,7 @@ module.exports = {
    *
    * @type {String}
    */
-  name: process.env.APP_NAME || 'app',
+  name: process.env.APP_NAME || 'Expressive - Boilerplate',
 
   /**
    * Environment application.
@@ -28,5 +28,18 @@ module.exports = {
    *
    * @type {String}
    */
-  locale: process.env.APP_LOCALE || 'en-us'
+  locale: process.env.APP_LOCALE || 'en-us',
+
+  /**
+   * Public folder to your static files
+   */
+  public: 'public',
+
+  /**
+   * Views settings
+   */
+  views: {
+    engine: 'pug',
+    folders: ['app', 'resources']
+  }
 }

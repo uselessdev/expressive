@@ -1,12 +1,13 @@
-extends ../../views/layout
+extends ../../resources/views/layout
 
 block title
   title Users - Express Boilerplate
 
 block content
   .container
-    .page-header
+    .head
       h1 Users
+      a.button(href="#") Novo
 
     if (users.length)
       table.table.table-hover
@@ -28,3 +29,68 @@ block content
               td #[span #{user.created()}]
     else
       p.text-info No users registered yet... #[a(href="users/create") Create an random user]
+
+block styles
+  style.
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font: 16px/1.5 'Lato';
+    }
+
+    .container {
+      width: 100%;
+      display: block;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+
+    .head {
+      display: flex;
+      align-items: center;
+      padding: 30px 0 15px;
+      justify-content: space-between;
+
+      border-bottom: 1px solid #ddd;
+    }
+      .head h1 {
+        color: #444;
+        font-size: 2rem;
+      }
+
+    table {
+      width: 100%;
+      margin: 15px 0;
+      border-spacing: 0;
+    }
+
+    th {
+      padding: 15px 0;
+      text-align: left;
+      border-bottom: 2px solid #222
+    }
+
+    td {
+      padding: 5px 0;
+      color: #444;
+    }
+
+    tr:hover td { color: #111 }
+
+    .button {
+      display: block;
+      padding: 0 25px;
+
+      color: #fff;
+      text-decoration: none;
+      text-overflow: ellipsis;
+      font: 600 1rem/32px 'Lato';
+
+      border-radius: 3px;
+      background-color: #3897f0;
+    }
+      .button:hover { background-color: #2980b9; }

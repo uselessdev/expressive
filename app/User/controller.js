@@ -3,24 +3,18 @@
  */
 const User = require('./model')
 
-class Users {
-  index (request, response) {
+function index (request, response) {
+  User.find()
+  .then(users => {
+    if (!users.length) {
+      return response.json({message: 'No users registered!'})
+    }
 
-    User.findAll().then(users => {
-      if (!users.length) {
-        return response.send('no users registered!')
-      }
-
-      response.format({
-        html: () => response.render('User/index', users),
-        json: () => response.json({
-          data: {
-            users
-          }
-        })
-      })
-    })
-  }
+    return response.render('User/index', {users})
+  })
+  .catch(err => console.error(err))
 }
 
-module.exports = new Users
+module.exports = {
+  index
+}

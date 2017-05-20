@@ -1,20 +1,94 @@
-extends layout
+extends ../../resources/views/layout
 
 block title
-  title Login - Express Boilerplate
+  title Login
 
 block content
-  .container
-    form.form.col-md-4.col-md-offset-4(action="/login", method="post")
-      .pahe-header
-        h2 Sing in
+  .login
+    form(method="post")
+      h1.head Login
 
       .form-group
         label Username
-        input.form-control(placeholder="your username", name="username", type="text")
+        input(type="text" name="username" required)
 
       .form-group
         label Password
-        input.form-control(placeholder="your password", name="password", type="password")
+        input(type="password" name="password" required)
 
-      button.btn.btn-default Sign in
+      button.form-button
+        span Sign In
+
+block styles
+  style.
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font: 16px/1.5 'Lato';
+    }
+
+    .login {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      padding: 15px;
+      align-items: flex-start;
+      justify-content: center
+    }
+
+    .head {
+      display: flex;
+      align-items: center;
+      padding: 30px 0 15px;
+      justify-content: space-between;
+
+      border-bottom: 1px solid #ddd;
+    }
+
+    .form-group {
+      display: block;
+      padding: 15px 0;
+    }
+
+    form {
+      width: 100%;
+      display: block;
+      max-width: 300px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-group input {
+      width: 100%;
+      display: block;
+      padding: 0 15px;
+      color: #444;
+      font: 1rem/35px 'Lato';
+      border-radius: 3px;
+      border: 1px solid #444;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      box-shadow: none;
+      border-color: #3498db;
+    }
+
+    .form-button {
+      width: 100%;
+      display: block;
+
+      color: #fff;
+      font: 1rem/35px 'Lato';
+
+      border-radius: 3px;
+      border: 1px solid #3498db;
+      background-color: #3498db;
+    }

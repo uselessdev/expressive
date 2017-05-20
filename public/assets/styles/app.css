@@ -11,6 +11,7 @@ html, body {
 body {
   width: 100%;
   display: flex;
+  font: 16px/1.5 'Lato';
   background-color: #f4f4f4;
 }
 
@@ -22,12 +23,15 @@ body {
   justify-content: center;
 }
 
-h1 {
+.message {
   display: block;
-  padding: 5px 15px;
+  padding: 5px 35px;
 
-  color: #333;
-  font: 1rem 'Lato';
+  color: #fff;
   text-align: center;
-  text-transform: uppercase;
+  font: 1rem/35px 'Lato';
+
+  border-radius: 3px;
+  background-color: tomato;
+  box-shadow: 0 0 15px rgba(0,0,0,.1);
 }

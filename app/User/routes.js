@@ -4,9 +4,8 @@
 'use strict'
 
 const users = require('./controller')
-const router = require('express').Router()
+const Router = require('express').Router()
 
-router.get('/', users.index)
-// router.get('/create', user.create)
+Router.get('/', users.index)
 
-module.exports = router
+module.exports = Router
