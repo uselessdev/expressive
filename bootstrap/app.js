@@ -8,15 +8,13 @@ const morgan = require('morgan')
 const express = require('express')
 const consign = require('consign')
 const bodyParser = require('body-parser')
-const session = require('express-session')
-const MongoStore = require('connect-mongo')(session)
 
 /**
  * Load Settings
  */
 const config = require('config/app')
 const sess = require('config/session')
-const mongo = require('config/database').mongo
+// const mongo = require('config/database').mongo
 
 /**
  * Express instance.
@@ -55,15 +53,15 @@ app.use(bodyParser.json())
 /**
  * Session settings.
  */
-app.use(session({
-  name: sess.name,
-  secret: sess.secret,
-  resave: false,
-  saveUninitialized: true,
-  session: new MongoStore({
-    url: mongo.uri
-  })
-}))
+// app.use(session({
+//   name: sess.name,
+//   secret: sess.secret,
+//   resave: false,
+//   saveUninitialized: true,
+//   session: new MongoStore({
+//     url: mongo.uri
+//   })
+// }))
 
 /**
  * Define public folders
@@ -82,8 +80,8 @@ app.set('view engine', config.views.engine)
 consign({
   locale: config.locale
 })
-.include('bootstrap/database.js')
-.then('app/routes.js')
-.into(app)
+  .include('bootstrap/database.js')
+  .then('app/routes.js')
+  .into(app)
 
 module.exports = app

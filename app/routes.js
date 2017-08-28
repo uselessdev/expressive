@@ -1,14 +1,10 @@
 /**
  * Routes
  */
-const Users = require('./User')
-const Login = require('./Login')
+const Home = require('./Home')
+const User = require('./User')
 
 module.exports = app => {
-  app.use('/', Login)
-  app.use('/users', Users)
-
-  app.get('/', (request, response) => {
-    response.render('views/welcome')
-  })
+  app.use('/', Home)
+  app.use('/users', User)
 }

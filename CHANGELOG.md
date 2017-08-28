@@ -6,7 +6,15 @@
 - Add CSRF token middleware https://www.npmjs.com/package/csurf
 - Seed and Factories
 
-## [0.1.0] - YYYY-MM-DD
+## [1.0.0] - YYYY-MM-DD
+### Removed
+- mongoose
+
+### Added
+- Bookshelf
+- Docker to run application
+
+## [0.1.0]
 
 ### Added
 - Request layer for validate inputs

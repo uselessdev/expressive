@@ -1,9 +1,46 @@
 /**
- * Database
+ * Database bootstrap
  */
-const mongoose = require('mongoose')
-const mongo = require('config/database').mongo
+const Bookshelf = require('bookshelf')
+const paranoia = require('bookshelf-paranoia')
+const settings = require('config/database')
 
-mongoose.Promise = global.Promise
+const knex = require('knex')(settings)
+const Bs = Bookshelf(knex)
 
-module.exports = mongoose.connect(mongo.uri)
+/**
+ * Plugin registry allow refery models passing
+ * a string it's help to avoid circular dependencies.
+ */
+Bs.plugin('registry')
+
+/**
+ * Virtuals allow to create virtual properties on model
+ * to compute new values.
+ */
+Bs.plugin('virtuals')
+
+/**
+ * Specify hidden/visible attributes
+ */
+Bs.plugin('visibility')
+
+/**
+ * Add fetchPage method to handle with pagination
+ * instead fetch and fetchAll
+ */
+Bs.plugin('pagination')
+
+/**
+ * Add SoftDeletes to tables
+ */
+Bs.plugin(paranoia)
+
+/**
+ * Here we exports knex just to use
+ * them programatically
+ */
+module.exports = {
+  knex,
+  Bookshelf: Bs
+}

@@ -3,17 +3,61 @@ version: '2'
 
 # Named volumes
 volumes:
-  # MongoDB Data
-  app-mongodb-data:
+  # MySQL Data
+  app-mysql-data:
     driver: local
 
 services:
-  # MongoDB
-  mongodb:
-    image: sameersbn/mongodb
-    container_name: app-mongodb
-    ports:
-      - "28002:27017"
+  # NodeJS
+  node:
+    image: node:8
+    container_name: app-node
     volumes:
-      - app-mongodb-data:/var/lib/mongodb
-    restart: always
+      - ./:/var/www
+    working_dir: /var/www
+
+  # Npm
+  npm:
+    extends:
+      service: node
+    container_name: app-npm
+    entrypoint: /usr/local/bin/npm
+
+  # Server
+  server:
+    extends:
+      service: node
+    container_name: app-server
+    ports:
+      - 3000:3000
+    command: npm run dev
+    links:
+      - database
+
+  # MySql Service
+  database:
+    image: mysql:5.7
+    container_name: app-mysql
+    ports:
+      - 3306:3306
+    volumes:
+      - app-mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_USER: homestead
+      MYSQL_PASSWORD: secret
+      MYSQL_DATABASE: homestead
+      MYSQL_ROOT_PASSWORD: root
+
+  # PHPMyAdmin Service
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: app-phpmyadmin
+    ports:
+      - 8000:80
+    environment:
+      PMA_HOST: database
+      PMA_PORT: 3306
+      PMA_USER: homestead
+      PMA_PASSWORD: secret
+    links:
+      - database

@@ -4,42 +4,21 @@
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
-This is only *experimental boilerplate*.
+## Running and up
 
-## HOW TO USE
-
-```bash
-$ git clone git@github.com:uselessdev/expressive.git <your-app>
-$ cd <your-app>
-$ npm install
+``` bash
+git clone git@github:uselessdev/expressive.git <your-app>
+cd <your-app>
+yarn # npm install
 ```
 
-After this, copy .env.example to .env
+If you're using Docker and Docker Compose
 
-```bash
-$ cp .env.example .env
+``` bash
+docker-compose up -d
 ```
 
-Change the the following env vars:
-
-```bash
-APP_LOCALE=your-locale
-APP_SECRET=your-secret
-
-SESSION_NAME=your-session-name
-SESSION_SECRET=your-session-secret
-```
-
-## MongoDB
-
-Connection need be configured on `config/database.js`
-
-### Using docker-compose for MongoDB
-
-
-```bash
-$ docker exec -it app-mongodb [mongod, bash, mongo]
-```
+Otherwise you need to run a database and configure it on `.env` or `config/database.js`
 
 ## CONTRIBUTING
 [Contributing](CONTRIBUTING.md)

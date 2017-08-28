@@ -3,49 +3,35 @@
  */
 const bcrypt = require('bcrypt')
 const moment = require('moment')
-const mongoose = require('mongoose')
-const timestamps = require('mongoose-timestamps')
+const { Bookshelf } = require('bootstrap/database')
 
-const userSchema = new mongoose.Schema({
-  name: String,
-  email: {
-    type: String,
-    unique: true
+/**
+ * @ATTENTION: When using toJSON use the following:
+ * user.toJSON({virtuals: true})
+ * this allow you to get {created: }
+ */
+
+const User = Bookshelf.Model.extend({
+  tableName: 'users',
+  hidden: ['password'],
+  virtuals: {
+    created () {
+      return moment(this.created_at).format('LLL')
+    }
   },
-  username: {
-    type: String,
-    required: true,
-    unique: true
+  initialize () {
+    this.on('creating', this.hash, this)
   },
-  password: {
-    type: String,
-    required: true,
-    select: false
+  hash (model, attrs, options) {
+    return new Promise((resolve, reject) =>
+      bcrypt.hash(model.attributes.password, 10)
+        .then(hash => {
+          model.set('password', hash)
+          resolve(hash)
+        })
+        .catch(reject)
+    )
   }
 })
 
-userSchema.pre('save', function (next) {
-  if (!this.isModified('password')) {
-    return next()
-  }
-
-  bcrypt
-    .hash(this.password, 10)
-    .then(hash => {
-      this.password = hash
-      next()
-    })
-    .catch(err => next(err))
-})
-
-userSchema.methods.created = function () {
-  return moment(this.created_at).format('LLL')
-}
-
-userSchema.methods.isValidPassword = function (password) {
-  return bcrypt.compare(password, this.password)
-}
-
-userSchema.plugin(timestamps)
-
-module.exports = mongoose.model('User', userSchema)
+module.exports = Bookshelf.model('User', User)
