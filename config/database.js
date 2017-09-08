@@ -16,7 +16,9 @@ const seeds = {
 const database = {
   sqlite: {
     client: 'sqlite3',
-    connection: ':memory:',
+    connection: {
+      filename: ':memory:'
+    },
     useNullAsDefault: true
   },
 

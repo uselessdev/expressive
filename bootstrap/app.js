@@ -55,13 +55,13 @@ app.use(bodyParser.json())
 /**
  * Session settings.
  */
-app.use(session({
-  key: sess.name,
-  secret: sess.secret,
-  resave: false,
-  saveUninitialized: true,
-  store: new MySQLStore(database.connection)
-}))
+// app.use(session({
+//   key: sess.name,
+//   secret: sess.secret,
+//   resave: false,
+//   saveUninitialized: true,
+//   store: new MySQLStore(database.connection)
+// }))
 
 /**
  * Define public folders
