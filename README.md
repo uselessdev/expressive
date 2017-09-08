@@ -22,6 +22,27 @@ yarn seed # npm run seed
 
 Otherwise you need to run a database and configure it on `.env` or `config/database.js`
 
+## Migrations and Seeds
+
+To create migrations and seed we are using knex, but to avoid install globally and run locally it's
+boring so we write an smaller npm scripts, so to create a migrate, instead to type this:
+
+``` bash
+./node_modules/.bin/knex migrate:make users
+```
+
+You can type this:
+
+``` bash
+yarn make:migrate -- users # npm run make:migrate -- users
+```
+
+Or you can install knex globally and run:
+
+``` bash
+knex migrate:make users
+```
+
 ## CONTRIBUTING
 [Contributing](CONTRIBUTING.md)
 
