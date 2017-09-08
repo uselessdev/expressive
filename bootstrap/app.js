@@ -8,13 +8,15 @@ const morgan = require('morgan')
 const express = require('express')
 const consign = require('consign')
 const bodyParser = require('body-parser')
+const session = require('express-session')
+const MySQLStore = require('express-mysql-session')(session)
 
 /**
  * Load Settings
  */
 const config = require('config/app')
 const sess = require('config/session')
-// const mongo = require('config/database').mongo
+const database = require('config/database')
 
 /**
  * Express instance.
@@ -53,15 +55,13 @@ app.use(bodyParser.json())
 /**
  * Session settings.
  */
-// app.use(session({
-//   name: sess.name,
-//   secret: sess.secret,
-//   resave: false,
-//   saveUninitialized: true,
-//   session: new MongoStore({
-//     url: mongo.uri
-//   })
-// }))
+app.use(session({
+  key: sess.name,
+  secret: sess.secret,
+  resave: false,
+  saveUninitialized: true,
+  store: new MySQLStore(database.connection)
+}))
 
 /**
  * Define public folders
