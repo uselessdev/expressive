@@ -1,7 +1,3 @@
-process.env.PORT = 3333
-process.env.NODE_ENV = 'test'
-process.env.DB_CONNECTION = 'sqlite'
-
 const chai = require('chai')
 const http = require('chai-http')
 const { expect } = chai
