@@ -1,5 +1,4 @@
 # Express Boilerplate
-
 > An experimental boilerplate for Express aplication.
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
@@ -15,7 +14,10 @@ yarn # npm install
 If you're using Docker and Docker Compose
 
 ``` bash
+cp .env.example .env # You need te confire your database connection here
 docker-compose up -d
+yarn migrate # npm run migrate
+yarn seed # npm run seed
 ```
 
 Otherwise you need to run a database and configure it on `.env` or `config/database.js`

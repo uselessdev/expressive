@@ -4,7 +4,12 @@
   "description": "An simple express boilerplate",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./server.js"
+    "dev": "nodemon ./server.js",
+    "make:migrate": "knex migrate:make",
+    "make:seed": "knex seed:make",
+    "seed": "knex seed:run",
+    "migrate": "knex migrate:latest",
+    "migrate:refresh": "knex migrate:rollback && npm run migrate && npm run seed"
   },
   "repository": {
     "type": "git",
