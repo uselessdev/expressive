@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 const chai = require('chai')
 const http = require('chai-http')
 const { expect } = chai
@@ -7,74 +8,94 @@ chai.use(http)
 const { knex } = require('bootstrap/database')
 const app = require('bootstrap/app')
 
-const __user__ = {
-  name: 'Jhon Doe',
-  email: 'jhon.doe@email.com',
+const user = {
+  name: 'Anne Marie',
+  email: 'anne.marie@email.com',
   password: 'batatas'
 }
 
-describe('Users', () => {
-  beforeEach(function (done) {
-    (async function () {
-      await knex.migrate.rollback()
-      await knex.migrate.latest()
-      await knex.seed.run()
+const setupDatabase = async () => {
+  await knex.migrate.rollback()
+  await knex.migrate.latest()
+  await knex.seed.run()
+}
 
-      done()
-    })()
+let response
+const request = chai.request(app)
+
+describe('User resource', () => {
+  beforeEach(setupDatabase)
+
+  describe('GET /users', () => {
+    before(() => (response = request.get('/users')))
+
+    it('expect status to be 200', () =>
+      response.then(response => expect(response).to.have.status(200))
+    )
+
+    it('expect content to be json', () =>
+      response.then(response => expect(response).to.be.json)
+    )
+
+    it('expect users contain a name equals Jhon Doe', () =>
+      response.then(({body}) => {
+        expect(body).to.have.nested.property('data')
+        expect(body.data[0]).to.deep.include({name: 'Jhon Doe'})
+      })
+    )
   })
 
-  it('/GET users', done => {
-    chai.request(app)
-      .get('/users')
-      .end((error, response) => {
-        expect(error).to.be.null
-        expect(response).to.be.json
-        expect(response).to.have.status(200)
+  describe('POST /users', () => {
+    before(() => (response = request.post('/users').send(user)))
 
-        done()
+    it('expect status to be 201', () =>
+      response.then(response => expect(response).to.have.status(201))
+    )
+
+    it('expect content to be json', () =>
+      response.then(response => expect(response).to.be.json)
+    )
+
+    it('expect user to be created and exists', () =>
+      response.then(({body}) => {
+        expect(body.data).to.deep.include({name: user.name})
       })
+    )
   })
 
-  it('/POST users', done => {
-    chai
-      .request(app)
-      .post('/users')
-      .send(__user__)
-      .end((error, response) => {
-        expect(error).to.be.null
-        expect(response).to.be.json
-        expect(response).to.have.status(201)
+  describe('PATCH /users', () => {
+    before(() => (response = request.patch('/users/1').send({name: 'Peter Parker'})))
 
-        done()
+    it('expect status to be 200', () =>
+      response.then(response => expect(response).to.have.status(200))
+    )
+
+    it('expect content to be json', () =>
+      response.then(response => expect(response).to.be.json)
+    )
+
+    it('expect name to user name to be Peter Parker', () =>
+      response.then(({body}) => {
+        expect(body.data).to.deep.include({name: 'Peter Parker'})
       })
+    )
   })
 
-  it('/PATCH users', done => {
-    chai
-      .request(app)
-      .patch('/users/1')
-      .send({name: 'Wallace Batista'})
-      .end((error, response) => {
-        expect(error).to.be.null
-        expect(response).to.be.json
-        expect(response).to.have.status(200)
-        expect(response.body.data).to.deep.include({name: 'Wallace Batista'})
+  describe('DELETE /users', () => {
+    before(() => (response = request.delete('/users/1')))
 
-        done()
-      })
-  })
+    it('expect status to be 200', () =>
+      response.then(response => expect(response).to.have.status(200))
+    )
 
-  it('/DELETE users', done => {
-    chai
-      .request(app)
-      .delete('/users/1')
-      .end((error, response) => {
-        expect(error).to.be.null
-        expect(response).to.be.json
-        expect(response).to.have.status(200)
+    it('expect content to be json', () =>
+      response.then(response => expect(response).to.be.json)
+    )
 
-        done()
-      })
+    it('expect to user with id 1 don\'t exists', () => {
+      request
+        .get('/users')
+        .then(response => console.log(response.body))
+    })
   })
 })

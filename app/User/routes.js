@@ -7,6 +7,7 @@ const users = require('./controller')
 const Router = require('express').Router()
 
 Router.get('/', users.index)
+Router.get('/:id', users.show)
 Router.post('/', users.store)
 Router.put('/:id', users.save)
 Router.patch('/:id', users.save)

@@ -3,7 +3,6 @@ const bcrypt = require('bcrypt')
 const user = {
   name: 'Jhon Doe',
   email: 'admin@admin.com',
-  username: 'admin',
   password: '123456'
 }
 

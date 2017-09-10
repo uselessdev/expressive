@@ -5,7 +5,15 @@ const User = require('./model')
 
 function index (request, response) {
   User.fetchAll()
-    .then(users => response.status(200).json({users: users.toJSON()}))
+    .then(users => response.status(200).json({data: users.toJSON()}))
+    .catch(error => response.status(500).send(error))
+}
+
+function show (request, response) {
+  const { id } = request.params
+
+  getUserById(id)
+    .then(responseUser(response, 200))
     .catch(error => response.status(500).send(error))
 }
 
@@ -55,5 +63,6 @@ module.exports = {
   index,
   store,
   save,
+  show,
   destroy
 }

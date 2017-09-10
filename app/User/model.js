@@ -14,6 +14,7 @@ const { Bookshelf } = require('bootstrap/database')
 const User = Bookshelf.Model.extend({
   tableName: 'users',
   hidden: ['password'],
+  timestamps: true,
   virtuals: {
     created () {
       return moment(this.created_at).format('LLL')
