@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test PORT=3333 DB_CONNECTION=sqlite mocha",
+    "test:tdd": "npm test -- --watch",
     "dev": "nodemon ./server.js",
     "make:migrate": "knex migrate:make",
     "make:seed": "knex seed:make",

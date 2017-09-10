@@ -18,7 +18,7 @@ describe('Users', () => {
     })()
   })
 
-  it('/GET expect status 200 and an object with all users', done => {
+  it('GET /users', done => {
     chai.request(app)
       .get('/users')
       .end((error, response) => {
