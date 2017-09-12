@@ -1,7 +1,14 @@
 # Express Boilerplate
 > An experimental boilerplate for Express aplication.
 
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+![Code Style][ico-standard]
+[![Software License][ico-license]](LICENSE)
+[![Build Status][ico-travis]][link-travis]
+
+[ico-standard]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square
+[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/uselessdev/expressive/master.svg?style=flat-square
+[link-travis]: https://travis-ci.org/uselessdev/expressive
 
 ## Running and up
 
@@ -9,18 +16,21 @@
 git clone git@github:uselessdev/expressive.git <your-app>
 cd <your-app>
 yarn # npm install
+cp .env.example .env # You need te confire your database connection here
 ```
 
 If you're using Docker and Docker Compose
 
 ``` bash
-cp .env.example .env # You need te confire your database connection here
 docker-compose up -d
+```
+Otherwise you need to run a database and configure it on `.env` or `config/database.js`
+
+Common commands for knex migrations
+``` bash
 yarn migrate # npm run migrate
 yarn seed # npm run seed
 ```
-
-Otherwise you need to run a database and configure it on `.env` or `config/database.js`
 
 ## Migrations and Seeds
 
