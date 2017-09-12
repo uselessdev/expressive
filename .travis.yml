@@ -5,11 +5,6 @@ env:
   NODE_ENV: test
   DB_CONNECTION: sqlite
 
-cache:
-  yarn: true
-  directories:
-    - node_modules
-
 node_js:
   - node
 
