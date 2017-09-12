@@ -1,0 +1,20 @@
+language: node_js
+
+env:
+  PORT: 3333
+  NODE_ENV: test
+  DB_CONNECTION: sqlite
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+node_js:
+  - node
+
+before_script:
+  - cp .env.example .env
+
+script:
+  - mocha
