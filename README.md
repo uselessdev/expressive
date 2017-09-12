@@ -5,7 +5,9 @@
 [![Software License][ico-license]](LICENSE)
 [![Build Status][ico-travis]][link-travis]
 [![Codacy grade][ico-codacy]][link-codacy]
+[![Greenkeeper badge][ico-greenkeeper]](https://greenkeeper.io/)
 
+[ico-greenkeeper]: https://badges.greenkeeper.io/uselessdev/expressive.svg?style=flat-square
 [ico-standard]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/uselessdev/expressive/master.svg?style=flat-square
