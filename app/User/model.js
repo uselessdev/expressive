@@ -1,20 +1,14 @@
 /**
- * Schama
+ * User model
  */
 const bcrypt = require('bcrypt')
 const moment = require('moment')
 const { Bookshelf } = require('bootstrap/database')
 
-/**
- * @ATTENTION: When using toJSON use the following:
- * user.toJSON({virtuals: true})
- * this allow you to get {created: }
- */
-
 const User = Bookshelf.Model.extend({
   tableName: 'users',
+  softDelete: true,
   hidden: ['password'],
-  timestamps: true,
   virtuals: {
     created () {
       return moment(this.created_at).format('LLL')
@@ -25,7 +19,8 @@ const User = Bookshelf.Model.extend({
   },
   hash (model, attrs, options) {
     return new Promise((resolve, reject) =>
-      bcrypt.hash(model.attributes.password, 10)
+      bcrypt
+        .hash(model.attributes.password, 10)
         .then(hash => {
           model.set('password', hash)
           resolve(hash)

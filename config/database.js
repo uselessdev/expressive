@@ -17,7 +17,7 @@ const database = {
   sqlite: {
     client: 'sqlite3',
     connection: {
-      filename: 'resources/database.sqlite'
+      filename: ':memory:'
     },
     useNullAsDefault: true
   },

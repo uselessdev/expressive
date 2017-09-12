@@ -1,6 +1,4 @@
 /**
- * User
- *
- * This index just exports the routes
+ * Users
  */
 module.exports = require('./routes')
