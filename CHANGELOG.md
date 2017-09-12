@@ -6,17 +6,13 @@
 - Add CSRF token middleware https://www.npmjs.com/package/csurf
 - Seed and Factories
 
-## [1.0.0] - YYYY-MM-DD
 ### Removed
 - mongoose
+- Storage folder
 
 ### Added
 - Bookshelf
 - Docker to run application
-
-## [0.1.0]
-
-### Added
 - Request layer for validate inputs
 - Compare hashs
 - Bcrypt to hash passwords
@@ -31,8 +27,3 @@
 - Apply env secret
 - Save sessions on mongodb
 - Helmet https://www.npmjs.com/package/helmet
-
-
-### Removed
-
-- Storage folder
