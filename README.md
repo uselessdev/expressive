@@ -4,10 +4,14 @@
 ![Code Style][ico-standard]
 [![Software License][ico-license]](LICENSE)
 [![Build Status][ico-travis]][link-travis]
+[![Codacy grade][ico-codacy]][link-codacy]
 
 [ico-standard]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/uselessdev/expressive/master.svg?style=flat-square
+[ico-codacy]: https://img.shields.io/codacy/grade/f0aebf53e061468d84718fbb3e1deabf.svg?style=flat-square
+
+[link-codacy]: https://www.codacy.com/app/wallacebatistaoliveira/expressive/dashboard
 [link-travis]: https://travis-ci.org/uselessdev/expressive
 
 ## Running and up
