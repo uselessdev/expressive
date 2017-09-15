@@ -2,24 +2,22 @@
 
 ## Unreleased
 
+### Added
+- Request layer for validate inputs
+
 - remove CSRF token from API posts requests
 - Add CSRF token middleware https://www.npmjs.com/package/csurf
 - Seed and Factories
 
+## v0.1.0
 ### Removed
-- mongoose
 - Storage folder
 
 ### Added
-- Bookshelf
-- Docker to run application
-- Request layer for validate inputs
-- Compare hashs
-- Bcrypt to hash passwords
-- Add .env files
-- Added public to static files
-- Added main route file
-- Added route file to module
+- .env files
+- public to static files
+- main route file
+- route file to module
 - Create hello module
 - Added basics modules
 - Compare passwords hashed
@@ -27,3 +25,11 @@
 - Apply env secret
 - Save sessions on mongodb
 - Helmet https://www.npmjs.com/package/helmet
+
+## v1.0.0
+### Removed
+- mongoose
+
+### Added
+- Bookshelf
+- Docker to run application
