@@ -1,18 +1,12 @@
 /**
  * User transform
  */
-const transform = meta => data => ({
-  data: data ? data.toJSON() : {},
-  meta: {
+const transform = require('app/Transform')
+
+const userTransform = meta => data =>
+  transform(data, {
     ...meta,
     resources: (data && data.id) ? `/users/${data.id}` : null
-  }
-})
+  })
 
-const responseOk = response => object =>
-  response.json(object)
-
-module.exports = {
-  transform,
-  responseOk
-}
+module.exports = userTransform

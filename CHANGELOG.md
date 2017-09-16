@@ -40,4 +40,5 @@
 - Docker to run application
 - Passport with Github strategy
 - Repository layers
-- Transforms and Responses
+- Transforms
+- Responses

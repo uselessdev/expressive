@@ -2,13 +2,19 @@
  * User controller
  */
 const users = require('./repository')
-const { transform, responseOk } = require('./transform')
+const transform = require('./transform')
+const {
+  responseWithOk,
+  responseWithCreated,
+  responseWithDeleted,
+  responseWithInternalServerError
+} = require('app/Responses')
 
 function index (request, response) {
   users.get()
     .then(transform())
-    .then(responseOk(response))
-    .catch(error => response.status(500).send(error))
+    .then(responseWithOk(response))
+    .catch(responseWithInternalServerError(response))
 }
 
 function show (request, response) {
@@ -16,44 +22,40 @@ function show (request, response) {
 
   users.byId(id)
     .then(transform())
-    .then(responseOk(response))
-    .catch(error => response.status(500).send(error))
+    .then(responseWithOk(response))
+    .catch(responseWithInternalServerError(response))
 }
 
 function store (request, response) {
   const { name, email } = request.body
 
   users.create(name, email)
-    .then(user => response.status(201).json({
-      data: user.toJSON(),
-      meta: {
-        next: '/users',
-        resources: `/users/${user.id}`
-      }
-    }))
-    .catch(error => response.status(500).send(error))
+    .then(transform())
+    .then(responseWithCreated(response))
+    .catch(responseWithInternalServerError(response))
 }
 
-function save (request, response) {
+function update (request, response) {
   const { id } = request.params
 
   users.update(id, request.body)
-    .then(user => response.status(200).json({
-      data: user.toJSON(),
-      meta: {
-        next: '/users',
-        resources: `/users/${user.id}`
-      }
-    }))
-    .catch(error => response.status(500).send(error))
+    .then(transform())
+    .then(responseWithOk(response))
+    .catch(responseWithInternalServerError(response))
 }
 
 function destroy (request, response) {
   const { id } = request.params
 
   users.remove(id)
-    .then(() => response.status(204).json({data: {}}))
-    .catch(error => response.status(500).send(error))
+    .then(responseWithDeleted(response))
+    .catch(responseWithInternalServerError(response))
 }
 
-module.exports = { index, show, store, save, destroy }
+module.exports = {
+  index,
+  show,
+  store,
+  update,
+  destroy
+}
