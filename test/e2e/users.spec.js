@@ -18,8 +18,7 @@ const setupDatabase = async () => {
 
 const user = {
   name: 'Anne Doe',
-  email: 'anne.doe@email.com',
-  password: 'ohmypassword'
+  email: 'anne.doe@email.com'
 }
 
 describe('Users resources', () => {

@@ -29,7 +29,6 @@
   "homepage": "https://github.com/uselessdev/express-generator#readme",
   "dependencies": {
     "app-module-path": "^2.2.0",
-    "bcrypt": "^1.0.1",
     "body-parser": "^1.15.2",
     "bookshelf": "^0.10.4",
     "bookshelf-paranoia": "^0.11.0",
@@ -38,7 +37,6 @@
     "express": "^4.14.0",
     "express-session": "^1.14.2",
     "helmet": "^3.3.0",
-    "jsonwebtoken": "^8.0.0",
     "knex": "^0.13.0",
     "method-override": "^2.3.7",
     "moment": "^2.17.0",

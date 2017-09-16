@@ -1,12 +1,12 @@
 /**
- * Bootstrap application
- *
+ * Bootstrap application.
  * All Express settings, as middleware, security, helmet are set here.
  */
 const helmet = require('helmet')
 const morgan = require('morgan')
 const express = require('express')
 const consign = require('consign')
+const passport = require('passport')
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const MySQLStore = require('express-mysql-session')(session)
@@ -29,10 +29,6 @@ const app = express()
 app.locals.app = {
   name: config.name
 }
-
-/**
- * Here we define some middlewares
- */
 
 /**
  * Security
@@ -62,6 +58,15 @@ app.use(session({
   saveUninitialized: true,
   store: new MySQLStore(database.connection)
 }))
+
+/**
+ * Authentication settings
+ */
+app.use(passport.initialize())
+app.use(passport.session())
+
+passport.serializeUser((user, done) => done(null, user))
+passport.deserializeUser((user, done) => done(null, user))
 
 /**
  * Define public folders

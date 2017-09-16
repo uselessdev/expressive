@@ -29,7 +29,10 @@
 ## v1.0.0
 ### Removed
 - mongoose
+- JWT
+- Bcrypt
 
 ### Added
 - Bookshelf
 - Docker to run application
+- Passport with Github strategy

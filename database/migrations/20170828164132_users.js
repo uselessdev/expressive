@@ -4,12 +4,11 @@ exports.up = function (knex, Promise) {
 
     table.string('name')
     table.string('email')
-    table.string('password')
 
     table.timestamps()
     table.timestamp('deleted_at')
 
-    table.unique(['email', 'username'])
+    table.unique(['email'])
   })
 }
 

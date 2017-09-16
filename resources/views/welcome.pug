@@ -2,6 +2,10 @@ extends layout
 
 block content
   p.message #{data.message} &hearts;
+  p.message
+    a(href="/users") Users
+  p.message
+    a(href="/auth") Login com github
 
 block styles
   link(rel="stylesheet", href="assets/styles/app.css")
