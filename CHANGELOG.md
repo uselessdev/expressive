@@ -1,10 +1,13 @@
 # CHANGE LOG
 
 ## Unreleased
+- Layer requests
+- Fields validations
+- jwt strategy with passport
+- Register users based on e-mail
 
 ### Added
 - Request layer for validate inputs
-
 - remove CSRF token from API posts requests
 - Add CSRF token middleware https://www.npmjs.com/package/csurf
 - Seed and Factories
@@ -36,3 +39,5 @@
 - Bookshelf
 - Docker to run application
 - Passport with Github strategy
+- Repository layers
+- Transforms and Responses

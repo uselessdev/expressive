@@ -8,7 +8,7 @@ const Auth = require('./Auth')
 module.exports = app => {
   app.use('/', Home)
   app.use('/auth', Auth)
-  app.use('/users', guard, User)
+  app.use('/users', User)
 
   /**
    * Realizar logout
