@@ -17,6 +17,12 @@ module.exports = {
       profileFields: [
         'id', 'emails', 'link', 'locale', 'name'
       ]
+    },
+
+    github: {
+      clientID: process.env.GH_CLIENT_ID,
+      clientSecret: process.env.GH_CLIENT_SECRET,
+      callbackURL: process.env.GH_CALLBACK,
     }
   }
 }

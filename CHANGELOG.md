@@ -42,3 +42,7 @@
 - Repository layers
 - Transforms
 - Responses
+- Github authentication
+- Facebook Authenticatio
+- Authentication using passport
+- App runs from docker now
