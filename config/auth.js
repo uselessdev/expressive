@@ -1,7 +1,7 @@
 /**
  * Auth Configuration
  */
-const auth = {
+module.exports = {
   /**
    * User model.
    */
@@ -9,16 +9,14 @@ const auth = {
     'model': require('app/User/model')
   },
 
-  'strategies': {
-    'github': {
-      clientID: process.env.GH_CLIENT_ID || '',
-      clientSecret: process.env.GH_CLIENT_SECRET || '',
-      callbackURL: process.env.GH_CALLBACK || 'https://your-app.com/auth/callback'
+  strategies: {
+    facebook: {
+      clientID: process.env.FB_APP_ID,
+      clientSecret: process.env.FB_SECRET,
+      callbackURL: process.env.FB_CALLBACK,
+      profileFields: [
+        'id', 'emails', 'link', 'locale', 'name'
+      ]
     }
   }
-}
-
-module.exports = {
-  users: auth.users,
-  strategy: auth.strategies[process.env.AUTH_STRATEGY]
 }

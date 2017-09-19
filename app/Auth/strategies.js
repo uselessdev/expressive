@@ -1,17 +1,22 @@
 /**
- * Auth Strategies
+ * Authstrategies
  */
-// const auth = require('config/auth')
-// const GithubStrategies = require('passport-github')
+const passport = require('passport')
+const { strategies } = require('config/auth')
+const FacebookStrategy = require('passport-facebook')
 
-// const github = new GithubStrategies(
-//   auth.strategy,
-//   (accessToken, refreshToken, profile, done) => done(null, {accessToken, profile})
-// )
+const handleProfile = (token, refreshToken, profile, done) =>
+  done(null, profile)
 
-// const facebook = () => ({})
+const facebook = (Router, controller) => {
+  passport.use(new FacebookStrategy(strategies.facebook, handleProfile))
 
-// module.exports = {
-//   github,
-//   facebook
-// }
+  Router.get('/facebook', passport.authenticate('facebook', {scope: ['email']}))
+  Router.get('/facebook/callback', passport.authenticate('facebook', {failureUrl: '/auth/error'}), controller.success)
+
+  return Router
+}
+
+module.exports = {
+  facebook
+}

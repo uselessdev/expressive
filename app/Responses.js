@@ -20,5 +20,6 @@ module.exports = {
   responseWithOk,
   responseWithCreated,
   responseWithDeleted,
+  responseWithUnathourizedError,
   responseWithInternalServerError
 }
