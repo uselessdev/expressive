@@ -1,24 +1,30 @@
 /**
  * Auth routes
  */
-
 const passport = require('passport')
 const Router = require('express').Router()
-const { Strategy } = require('passport-github')
 
-const auth = require('config/auth')
-const controller = require('./controller')
+const { strategies } = require('config/env')
 
-const strategy = process.env.AUTH_STRATEGY
+Router.get('/', (request, response) => {
+  const routes = strategies.map(strategy => `auth/${strategy}`)
+  response.json(routes)
+})
 
-passport.use(new Strategy(
-  auth.strategy,
-  (accessToken, refreshToken, profile, done) => done(null, {accessToken, profile})
-))
+// const controller = require('./controller')
+// const strategies = require('./strategies')
 
-Router.get('/', passport.authenticate(strategy))
+// const { strategy } = require('config/env')
 
-Router.get('/error', controller.fail)
-Router.get('/callback', passport.authenticate('github', {failuteRedirect: '/auth/error'}), controller.success)
+// passport.use(strategies[strategy])
+
+// Router.get('/', passport.authenticate(strategy))
+// Router.get('/error', controller.fail)
+
+// Router.get(
+//   '/callback',
+//   passport.authenticate(strategy, {failuteRedirect: '/auth/error'}),
+//   controller.success
+// )
 
 module.exports = Router

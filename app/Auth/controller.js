@@ -1,15 +1,18 @@
 /**
  * Auth Controllers
  */
-function success (request, response) {
-  response.redirect('/users')
-}
+// const {
+//   responseWithUnathourizedError
+// } = require('app/Responses')
 
-function fail (request, response) {
-  response.status(401).json({error: 'Authentication was failed!'})
-}
+// function success (request, response) {
+//   response.redirect('/users')
+// }
 
-module.exports = {
-  success,
-  fail
-}
+// const fail = (request, response) =>
+//   responseWithUnathourizedError(response)('Authentication was failed!')
+
+// module.exports = {
+//   success,
+//   fail
+// }

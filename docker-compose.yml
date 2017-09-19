@@ -9,30 +9,30 @@ volumes:
 
 services:
   # NodeJS
-  # node:
-  #   image: node:8
-  #   container_name: app-node
-  #   volumes:
-  #     - ./:/var/www
-  #   working_dir: /var/www
+  node:
+    image: node:8
+    container_name: app-node
+    volumes:
+      - ./:/var/www
+    working_dir: /var/www
 
   # Npm
-  # npm:
-  #   extends:
-  #     service: node
-  #   container_name: app-npm
-  #   entrypoint: /usr/local/bin/npm
+  npm:
+    extends:
+      service: node
+    container_name: app-npm
+    entrypoint: /usr/local/bin/npm
 
   # Server
-  # server:
-  #   extends:
-  #     service: node
-  #   container_name: app-server
-  #   ports:
-  #     - 3000:3000
-  #   command: npm run dev
-  #   links:
-  #     - database
+  server:
+    extends:
+      service: node
+    container_name: app-server
+    ports:
+      - 3000:3000
+    command: npm run dev
+    links:
+      - database
 
   # MySql Service
   database:

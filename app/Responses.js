@@ -13,6 +13,9 @@ const responseWithDeleted = response =>
 const responseWithInternalServerError = response => error =>
   response.status(500).send(error)
 
+const responseWithUnathourizedError = response => error =>
+  response.status(401).send(error)
+
 module.exports = {
   responseWithOk,
   responseWithCreated,

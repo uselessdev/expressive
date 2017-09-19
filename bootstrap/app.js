@@ -86,7 +86,7 @@ consign({
   locale: config.locale
 })
   .include('bootstrap/database.js')
-  .then('app/routes.js')
+  .then('app/Routes.js')
   .into(app)
 
 module.exports = app

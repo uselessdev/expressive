@@ -19,4 +19,4 @@ module.exports = app => {
   })
 }
 
-const guard = (request, response, next) => request.isAuthenticated() ? next() : response.redirect('/auth')
+// const guard = (request, response, next) => request.isAuthenticated() ? next() : response.redirect('/auth')
