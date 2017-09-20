@@ -2,12 +2,7 @@
 
 ## Unreleased
 ### Added
-- Request layer for validate inputs
-- remove CSRF token from API posts requests
 - Add CSRF token middleware https://www.npmjs.com/package/csurf
-- Seed and Factories
-- Layer requests
-- Fields validations
 - jwt strategy with passport
 - Register users based on e-mail
 
@@ -45,3 +40,5 @@
 - Facebook Authenticatio
 - Authentication using passport
 - App runs from docker now
+- Request layer for validate inputs
+- Seed and Factories

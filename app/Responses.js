@@ -16,10 +16,14 @@ const responseWithInternalServerError = response => error =>
 const responseWithUnathourizedError = response => error =>
   response.status(401).send(error)
 
+const responseWithUnprocessableEntity = response => error =>
+  response.status(422).json({errors: error.array()})
+
 module.exports = {
   responseWithOk,
   responseWithCreated,
   responseWithDeleted,
   responseWithUnathourizedError,
-  responseWithInternalServerError
+  responseWithInternalServerError,
+  responseWithUnprocessableEntity
 }

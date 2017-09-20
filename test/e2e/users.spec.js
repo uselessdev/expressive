@@ -66,6 +66,16 @@ describe('Users resources', () => {
     )
   })
 
+  describe('POST /users', () => {
+    it('expect response to have Unprocessable Entity error', () => {
+      request
+        .post('/users')
+        .send({email: 'jhon@mail.com'})
+        .then(response => expect(response).to.have.status(422))
+        .catch(error => expect(error).to.be.throw)
+    })
+  })
+
   describe('PATCH /users', () => {
     before(() => (
       response = request.patch('/users/1').send({name: 'Anakin Skywalker'})

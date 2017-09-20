@@ -9,6 +9,7 @@ const consign = require('consign')
 const passport = require('passport')
 const bodyParser = require('body-parser')
 const session = require('express-session')
+const validate = require('express-validator')
 const MySQLStore = require('express-mysql-session')(session)
 
 /**
@@ -47,6 +48,8 @@ app.use(bodyParser.urlencoded({
   extended: true
 }))
 app.use(bodyParser.json())
+
+app.use(validate())
 
 /**
  * Session settings.
