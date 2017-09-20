@@ -2,8 +2,8 @@
  * Auth routes
  */
 const Router = require('express').Router()
-
 const controller = require('./controller')
+
 const {
   github,
   facebook

@@ -1,9 +1,7 @@
 /**
  * Auth Controllers
  */
-const {
-  responseWithUnathourizedError
-} = require('app/Responses')
+const { responseWithUnathourizedError } = require('app/Responses')
 
 function success (request, response) {
   response.redirect('/users')
