@@ -11,7 +11,7 @@ const {
 } = require('app/Responses')
 
 function index (request, response) {
-  users.get()
+  users.find()
     .then(transform())
     .then(responseWithOk(response))
     .catch(responseWithInternalServerError(response))
@@ -20,7 +20,7 @@ function index (request, response) {
 function show (request, response) {
   const { id } = request.params
 
-  users.byId(id)
+  users.findOne({id})
     .then(transform())
     .then(responseWithOk(response))
     .catch(responseWithInternalServerError(response))

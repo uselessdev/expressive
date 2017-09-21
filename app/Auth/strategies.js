@@ -2,18 +2,39 @@
  * Authstrategies
  */
 const passport = require('passport')
-const { strategies } = require('config/auth')
 const GithubStrategy = require('passport-github').Strategy
 const FacebookStrategy = require('passport-facebook').Strategy
 
-/**
- * @TODO: Verify if user exists on database
- * @TODO: If exists return this user
- * @TODO: If not exists register user and return
- */
+const {
+  users,
+  strategies
+} = require('config/auth')
+
+const transformProfile = profile => {
+  const [{ value }] = profile.emails
+
+  return {
+    email: value,
+    name: profile.displayName || profile.name.givenName + ' ' + profile.name.familyName
+  }
+}
+
 const handleProfile = (token, refreshToken, profile, done) => {
-  console.log(profile)
-  return done(null, profile)
+  const { email, name } = transformProfile(profile)
+  const { model } = users
+
+  model.findOne({email})
+    .then(user => user ? user.toJSON() : null)
+    .then(user => {
+      if (user) {
+        return done(null, user)
+      }
+
+      return model.create(name, email)
+        .then(user => done(null, user))
+        .catch(error => console.log('error on create:', error))
+    })
+    .catch(error => console.log(error))
 }
 
 const handleRoutesStrategies = (strategy, Router, controller) => {

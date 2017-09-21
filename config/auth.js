@@ -6,7 +6,7 @@ module.exports = {
    * User model.
    */
   users: {
-    model: require('app/User/model')
+    model: require('app/User/repository')
   },
 
   strategies: {

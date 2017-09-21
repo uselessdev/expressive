@@ -4,7 +4,6 @@
 ### Added
 - Add CSRF token middleware https://www.npmjs.com/package/csurf
 - jwt strategy with passport
-- Register users based on e-mail
 
 ## v0.1.0
 ### Removed
@@ -42,3 +41,4 @@
 - App runs from docker now
 - Request layer for validate inputs
 - Seed and Factories
+- Register users based on e-mail
