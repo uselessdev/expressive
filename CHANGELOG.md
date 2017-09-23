@@ -2,7 +2,8 @@
 
 ## Unreleased
 ### Added
-- Add CSRF token middleware https://www.npmjs.com/package/csurf
+- Document how to use authentication
+- Refactore Register flow on auth
 - jwt strategy with passport
 
 ## v0.1.0
@@ -42,3 +43,4 @@
 - Request layer for validate inputs
 - Seed and Factories
 - Register users based on e-mail
+- Add CSRF token middleware https://www.npmjs.com/package/csurf

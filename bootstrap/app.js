@@ -2,6 +2,7 @@
  * Bootstrap application.
  * All Express settings, as middleware, security, helmet are set here.
  */
+const csurf = require('csurf')
 const helmet = require('helmet')
 const morgan = require('morgan')
 const express = require('express')
@@ -75,6 +76,16 @@ passport.deserializeUser((user, done) => done(null, user))
  * Define public folders
  */
 app.use(express.static(config.public))
+
+/**
+ * Allow csrf protection
+ */
+app.use(csurf())
+
+app.use((request, response, next) => {
+  response.locals._csrf = request.csrfToken()
+  next()
+})
 
 /**
  * View engine
