@@ -11,6 +11,6 @@ const fail = (request, response) =>
   responseWithUnathourizedError(response)('Authentication was failed!')
 
 module.exports = {
-  success,
-  fail
+  fail,
+  success
 }

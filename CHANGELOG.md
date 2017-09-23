@@ -2,8 +2,6 @@
 
 ## Unreleased
 ### Added
-- Document how to use authentication
-- Refactore Register flow on auth
 - jwt strategy with passport
 
 ## v0.1.0
@@ -44,3 +42,4 @@
 - Seed and Factories
 - Register users based on e-mail
 - Add CSRF token middleware https://www.npmjs.com/package/csurf
+- Create auth/register
