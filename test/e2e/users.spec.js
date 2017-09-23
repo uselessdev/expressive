@@ -47,7 +47,7 @@ describe('Users resources', () => {
 
   describe('POST /users', () => {
     before(() => (
-      response = request.post('/users').send(user)
+      response = request.post('/api/users').send(user)
     ))
 
     it('expect post user and get status 201', () =>
@@ -69,7 +69,7 @@ describe('Users resources', () => {
   describe('POST /users', () => {
     it('expect response to have Unprocessable Entity error', () => {
       request
-        .post('/users')
+        .post('/api/users')
         .send({email: 'jhon@mail.com'})
         .then(response => expect(response).to.have.status(422))
         .catch(error => expect(error).to.be.throw)
@@ -78,7 +78,7 @@ describe('Users resources', () => {
 
   describe('PATCH /users', () => {
     before(() => (
-      response = request.patch('/users/1').send({name: 'Anakin Skywalker'})
+      response = request.patch('/api/users/1').send({name: 'Anakin Skywalker'})
     ))
 
     it('expect to have status 200', () =>
@@ -99,7 +99,7 @@ describe('Users resources', () => {
 
   describe('DELETE /users', () => {
     before(() => (
-      response = request.delete('/users/1')
+      response = request.delete('/api/users/1')
     ))
 
     it('expect status to be 204', () =>

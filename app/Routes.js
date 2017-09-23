@@ -8,7 +8,9 @@ const Auth = require('./Auth')
 module.exports = app => {
   app.use('/', Home)
   app.use('/auth', Auth)
+
   app.use('/users', User)
+  app.use('/api/users', User)
 
   /**
    * Realizar logout

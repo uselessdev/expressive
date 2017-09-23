@@ -80,12 +80,20 @@ app.use(express.static(config.public))
 /**
  * Allow csrf protection
  */
-app.use(csurf())
+const wrapper = csurf()
 
 app.use((request, response, next) => {
-  response.locals._csrf = request.csrfToken()
-  next()
+  if (request.url.startsWith('/api')) {
+    return next()
+  }
+
+  return wrapper(request, response, next)
 })
+
+// app.use((request, response, next) => {
+//   response.locals._csrf = request.csrfToken()
+//   next()
+// })
 
 /**
  * View engine
