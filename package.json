@@ -62,7 +62,7 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "faker": "^4.1.0",
-    "mocha": "^3.5.0",
+    "mocha": "^4.0.0",
     "nodemon": "^1.11.0"
   }
 }
