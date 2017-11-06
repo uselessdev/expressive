@@ -39,7 +39,7 @@
     "express-session": "^1.14.2",
     "express-validator": "^4.2.0",
     "helmet": "^3.3.0",
-    "knex": "^0.13.0",
+    "knex": "^0.14.0",
     "method-override": "^2.3.7",
     "moment": "^2.17.0",
     "morgan": "^1.7.0",
