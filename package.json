@@ -1,0 +1,32 @@
+{
+  "name": "expressive",
+  "version": "0.1.0",
+  "description": "A API boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitub.com/uselessdev/expressive.git"
+  },
+  "keywords": [
+    "API",
+    "Node",
+    "API",
+    "Express"
+  ],
+  "author": "uselessdev <wallacebatistaoliveira@gmail.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^4.17.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^6.0.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "jest": "^22.2.1"
+  }
+}
