@@ -572,6 +572,10 @@ concat-stream@^1.6.0:
     readable-stream "^2.2.2"
     typedarray "^0.0.6"
 
+consign@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/consign/-/consign-0.1.6.tgz#5a9b3a60ba5d362a514841b0c633e584486a72d7"
+
 console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"

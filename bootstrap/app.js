@@ -1,13 +1,12 @@
 /**
  * Start Application
  */
+const consign = require('consign')
 const express = require('express')
 const app = express()
 
-app.get('/', (request, response) => {
-  response.json({
-    data: 'Hello World!'
-  })
-})
+consign({locale: 'pt-br'})
+  .include('app/Routes.js')
+  .into(app)
 
 module.exports = app
