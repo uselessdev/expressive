@@ -16,6 +16,10 @@ describe('Unit tests', () => {
 
 describe('Integration tests', () => {
   it('should status to be 200', () =>
-    request(app).get('/').expect(200, {data: 'Hello World!'})
+    request(app).get('/').expect(200, {
+      data: {
+        message: 'Hello World!'
+      }
+    })
   )
 })
