@@ -2,10 +2,12 @@
  * Books Controller
  */
 const Books = require('./repository')
+const BooksTransform = require('./transform')
 
 const index = (request, response) => {
   Books.find()
-    .then(books => response.json({data: books}))
+    .then(BooksTransform())
+    .then(books => response.json(books))
 }
 
 const show = (request, response) => {
