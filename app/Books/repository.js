@@ -36,7 +36,7 @@ let books = [
 
 const find = () => Promise.resolve(books)
 
-const findOne = id => Promise.resolve(books.find(book => book.id === id))
+const findOne = id => Promise.resolve(books.find(book => book.id === parseInt(id)))
 
 const create = book => {
   books.push({
