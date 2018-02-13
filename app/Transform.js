@@ -1,8 +1,8 @@
 /**
  * Transform
  */
-const Transform = (data, meta) => ({
-  meta,
+const Transform = meta => data => ({
+  ...meta,
   data: data || {}
 })
 
