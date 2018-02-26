@@ -1,15 +1,19 @@
 /**
  * Home Controller
  */
-const books = require('../Books/repository')
+const booksRepository = require('../Books/repository')
+const authorsRepository = require('../Authors/repository')
 
-const index = (request, response) => {
-  books.find()
-    .then(books => response.json({
-      data: {
-        books
-      }
-    }))
+const index = async (request, response) => {
+  const books = await booksRepository.find()
+  const authors = await authorsRepository.find()
+
+  return response.json({
+    data: {
+      books,
+      authors
+    }
+  })
 }
 
 module.exports = {
