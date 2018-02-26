@@ -28,6 +28,7 @@
     "helmet": "^3.11.0"
   },
   "devDependencies": {
+    "dotenv": "^5.0.0",
     "eslint": "^4.17.0",
     "eslint-config-standard": "^11.0.0-beta.0",
     "eslint-plugin-import": "^2.8.0",

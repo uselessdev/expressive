@@ -1,10 +1,9 @@
 /**
  * Entrypoint Application
  */
-const app = require('./bootstrap/app.js')
-const port = 3000
+require('dotenv').config()
 
-app.listen(
-  port,
-  () => console.log(`listening on ${port}`)
-)
+const { port } = require('./config/app')
+const app = require('./bootstrap/app.js')
+
+app.listen(port, () => console.log(`listening on ${port}`))

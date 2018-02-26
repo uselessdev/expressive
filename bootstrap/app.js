@@ -7,6 +7,8 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const validate = require('express-validator')
 
+const { locale } = require('../config/app')
+
 const app = express()
 
 app.use(helmet())
@@ -16,7 +18,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }))
 
-consign({locale: 'pt-br'})
+consign({ locale })
   .include('app/Routes.js')
   .into(app)
 
