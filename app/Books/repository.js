@@ -34,29 +34,29 @@ let books = [
   }
 ]
 
-const find = () => Promise.resolve(books)
+const find = async () => books
 
-const findOne = id => Promise.resolve(books.find(book => book.id === parseInt(id)))
+const findOne = async (id) => books.find(book => book.id === parseInt(id))
 
-const create = book => {
+const create = async (book) => {
   books.push({
     id: books.length + 1,
     ...book
   })
 
-  return Promise.resolve(books)
+  return books
 }
 
-const update = (id, data) => {
+const update = async (id, data) => {
   const book = books.find(b => b.id === id)
   Object.assign(book, data)
 
-  return Promise.resolve(books)
+  return books
 }
 
-const remove = id => {
+const remove = async (id) => {
   books = books.filter(b => b.id !== id)
-  return Promise.resolve(books)
+  return books
 }
 
 module.exports = {
