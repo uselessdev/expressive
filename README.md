@@ -20,5 +20,39 @@ cp .env.example .env # You need te confire your database connection here
 ## Updates
 Expressive no longer has database configurations, authentication and page rendering, is now a simple boilerplate that proposes a simpler structure to handle an API application.
 
+## Project
+```
+├── app
+│   ├── Authors
+│   │   ├── controller.js
+│   │   ├── index.js
+│   │   ├── repository.js
+│   │   └── routes.js
+│   ├── Books
+│   │   ├── controller.js
+│   │   ├── index.js
+│   │   ├── repository.js
+│   │   ├── request.js
+│   │   └── routes.js
+│   ├── Home
+│   │   ├── controller.js
+│   │   ├── index.js
+│   │   └── routes.js
+│   └── Routes.js
+├── bootstrap
+│   └── app.js
+├── config
+│   └── app.js
+├── LICENSE
+├── package.json
+├── README.md
+├── server.js
+├── tests
+│   ├── books.test.js
+│   └── index.test.js
+└── yarn.lock
+```
+
+
 ## LICENSE
 [License](LICENSE)
