@@ -22,10 +22,13 @@
   "license": "MIT",
   "dependencies": {
     "@anarklab/expressive-controller": "^0.1.0",
+    "@anarklab/expressive-orm": "^0.1.0",
     "body-parser": "^1.18.2",
     "consign": "^0.1.6",
     "express": "^4.16.2",
+    "express-graphql": "^0.6.12",
     "express-validator": "^5.0.0",
+    "graphql": "^0.13.1",
     "helmet": "^3.11.0"
   },
   "devDependencies": {

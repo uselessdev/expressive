@@ -1,12 +1,13 @@
-const authors = [
-  {
-    id: 1,
-    name: 'George R. R. Martin'
-  }
-]
+const Author = require('./model')
 
-const find = () => Promise.resolve(authors)
-const findOne = id => Promise.resolve(authors.find(author => author.id === parseInt(id)))
+const relations = {
+  withRelated: [
+    'books'
+  ]
+}
+
+const find = query => Author.where({...query}).fetchAll(relations)
+const findOne = id => Author.where({ id }).fetch(relations)
 
 module.exports = {
   find,

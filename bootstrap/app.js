@@ -7,6 +7,9 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const validate = require('express-validator')
 
+const schema = require('../app/Schema')
+const expressGraphQL = require('express-graphql')
+
 const { locale } = require('../config/app')
 
 const app = express()
@@ -18,8 +21,14 @@ app.use(bodyParser.urlencoded({
   extended: true
 }))
 
+app.use('/graphql', expressGraphQL({
+  schema,
+  graphiql: true
+}))
+
 consign({ locale })
-  .include('app/Routes.js')
+  .include('bootstrap/database.js')
+  .then('app/Routes.js')
   .into(app)
 
 module.exports = app

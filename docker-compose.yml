@@ -1,0 +1,37 @@
+# v2 syntax
+version: '2'
+
+# Named volumes
+volumes:
+  # MySQL Data
+  app-mysql-data:
+    driver: local
+
+services:
+  # MySql Service
+  database:
+    image: mysql:5.7
+    container_name: app-mysql
+    ports:
+      - 3306:3306
+    volumes:
+      - app-mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_USER: homestead
+      MYSQL_PASSWORD: secret
+      MYSQL_DATABASE: homestead
+      MYSQL_ROOT_PASSWORD: root
+
+  # PHPMyAdmin Service
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: app-phpmyadmin
+    ports:
+      - 8000:80
+    environment:
+      PMA_HOST: database
+      PMA_PORT: 3306
+      PMA_USER: homestead
+      PMA_PASSWORD: secret
+    links:
+      - database
