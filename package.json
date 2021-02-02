@@ -26,7 +26,7 @@
     "consign": "^0.1.6",
     "express": "^4.16.2",
     "express-validator": "^5.0.0",
-    "helmet": "^3.11.0"
+    "helmet": "^4.4.1"
   },
   "devDependencies": {
     "dotenv": "^5.0.0",
