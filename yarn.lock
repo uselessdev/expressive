@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@anarklab/expressive-controller@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@anarklab/expressive-controller/-/expressive-controller-0.1.0.tgz#ede6df93a06426122d857e4c395fc7db83e40e31"
-  integrity sha512-VoCZcavaPxoqKYrgdhwLq1oCaRlsyQjKMnWkgpdL6I0RgdmGJiv2rUguLc62jMYZfbeeTXrmiKUd4wmHznQ6oA==
+"@anarklab/expressive-controller@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@anarklab/expressive-controller/-/expressive-controller-0.3.0.tgz#66b6e4558fd7dac8681a832cc877d27de659a7b8"
+  integrity sha512-wBdsGeMBATz4d9q2SreEB9b/t0hA1ZzUCGHKQ+oqYaNJmJc45zF6S6ZGIHFbwLCkHOEnqZXiTQnpj4iRv9886g==
   dependencies:
     eslint "^4.18.0"
 
