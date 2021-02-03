@@ -38,6 +38,6 @@
     "eslint-plugin-standard": "^3.0.1",
     "jest": "^26.6.3",
     "nodemon": "^1.14.12",
-    "supertest": "^3.0.0"
+    "supertest": "^6.1.3"
   }
 }
