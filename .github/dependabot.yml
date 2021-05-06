@@ -1,0 +1,14 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: dotenv
+    versions:
+    - 8.2.0
+  - dependency-name: eslint-plugin-node
+    versions:
+    - 8.0.1
